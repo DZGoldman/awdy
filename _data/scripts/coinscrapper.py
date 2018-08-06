@@ -5,9 +5,9 @@ import pandas as pd
 import numpy as np
 
 class CoinScrapper:
-'''
-All coins will inherit from this class
-'''
+    '''
+    All coins will inherit from this class
+    '''
     # constants:
     default_page_load_wait_time = 2
 
@@ -68,8 +68,9 @@ All coins will inherit from this class
     # Methods below are 'helper methods' for crawling and sanitizing data
     def get_page(self, url, sleep_time = False):
         # TODO: don't get if already on page
-        self.driver.get(url);
-        self.sleep(sleep_time) 
+        if self.driver.current_url != url:
+            self.driver.get(url)
+            self.sleep(sleep_time) 
 
     def sleep(self, sleep_time = False):
         time.sleep(sleep_time or self.default_page_load_wait_time)
