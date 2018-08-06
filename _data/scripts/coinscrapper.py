@@ -5,10 +5,16 @@ import pandas as pd
 import numpy as np
 
 class CoinScrapper:
-
+'''
+All coins will inherit from this class
+'''
+    # constants:
     default_page_load_wait_time = 2
 
     def main(self):
+        '''
+        triggers all 4 data collection methods and writes to yml (good place to start if following logic of program)
+        '''
         new_data_for_yml = {}
         try:
             wealth_distribution  = self.get_wealth_distribution()
@@ -47,6 +53,9 @@ class CoinScrapper:
         self.write_to_yml(new_data_for_yml)
 
     def write_to_yml(self, new_data):
+        '''
+        overwrites new values in new_data dictionary to yml file
+        '''
         fname = "_data/coins/{}.yml".format(self.name)
         stream = open(fname, 'r')
         
@@ -56,7 +65,7 @@ class CoinScrapper:
             yaml_file.write( yaml.dump(data, default_flow_style=False))
 
 
-
+    # Methods below are 'helper methods' for crawling and sanitizing data
     def get_page(self, url, sleep_time = False):
         # TODO: don't get if already on page
         self.driver.get(url);
@@ -77,6 +86,9 @@ class CoinScrapper:
         return float(st.replace('%', '').strip())
 
     def get_cumulative_grouping_count(self, data, target_percentage, target_sum = False):
+        '''
+        accepts list or dataframe of numbers, where each number represents counts of categories. Returns minimum number of categories such that make up target_percentage of total. Total is calculated or passed in directly. (I hope this makes sense)
+        '''
         if isinstance(data, list):
             data = pd.DataFrame(data)[0]
         # Sort values (values are node counts)
@@ -88,4 +100,7 @@ class CoinScrapper:
         return  int(np.where(cumulative_sum_percentages.gt(target_percentage) )[0][0] +1)
 
     def read_table(self, table, converters={}):
+        '''
+        converts selenium table object to dataframe; open to transform data type of columns
+        '''
         return pd.read_html(table.get_attribute("outerHTML"), header=0, converters=converters)[0]

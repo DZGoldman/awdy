@@ -13,7 +13,7 @@ class Bitcoin(CoinScrapper):
         
     def get_wealth_distribution(self):
         self.get_page("https://bitinfocharts.com/bitcoin/");
-        # # Get data from page
+        # Get data from page
         wealth_text = self.attempt_find_element( lambda: self.driver.find_element_by_id("tdid18")).text
         cleaned_text = wealth_text.replace(" ", "").split('/')
         wealth_distribution = cleaned_text[1]
@@ -24,6 +24,7 @@ class Bitcoin(CoinScrapper):
     def get_client_codebases(self):
         self.get_page('https://coin.dance/nodes')
         count_containers = self.attempt_find_element( lambda: self.driver.find_elements_by_css_selector(".nodeCountBlock > h3 > .nodeTitle > strong"))
+        # convert elements to list of integers, representing count of each codebase
         all_counts = [int(container.text) for container in count_containers]
         client_codebases = self.get_cumulative_grouping_count(all_counts, .9)
         print('BTC codebases over 90%:', client_codebases)
