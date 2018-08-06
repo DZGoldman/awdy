@@ -67,7 +67,6 @@ class CoinScrapper:
 
     # Methods below are 'helper methods' for crawling and sanitizing data
     def get_page(self, url, sleep_time = False):
-        # TODO: don't get if already on page
         if self.driver.current_url != url:
             self.driver.get(url)
             self.sleep(sleep_time) 
