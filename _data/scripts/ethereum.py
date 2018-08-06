@@ -3,7 +3,7 @@ import json, re
 import pandas as pd
 
 class Ethereum(CoinScrapper):
-    
+
     def __init__ (self, driver):
         self.name = 'ethereum'
         self.driver = driver
@@ -26,6 +26,10 @@ class Ethereum(CoinScrapper):
         # Read table as dataframe, sanitizing % column to float
         readtable = self.read_table(table, converters = {"Percentage": self.percentage_string_to_float })
         # Sum of % column
+        percentages = readtable['Percentage']
+        # sanity check: ensure 100 addresses were found
+        if not len(percentages) == 100:
+            return False
         wealth_distribution = readtable['Percentage'].sum()
         print('ETH wealth distribution:', wealth_distribution)
         return round(float(wealth_distribution))
