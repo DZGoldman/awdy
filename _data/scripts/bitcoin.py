@@ -1,9 +1,11 @@
 from coinscrapper import CoinScrapper
 
 class Bitcoin(CoinScrapper):
+
     def __init__ (self, driver):
         self.name = 'bitcoin'
         self.driver = driver
+        
     def get_public_nodes(self):
         self.get_page("https://coin.dance/nodes");
         node_count_container = self.attempt_find_element( lambda: self.driver.find_element_by_css_selector("[title].nodeTitle > strong"))

@@ -1,10 +1,13 @@
 from coinscrapper import CoinScrapper
 import json, re
 import pandas as pd
+
 class Ethereum(CoinScrapper):
+    
     def __init__ (self, driver):
         self.name = 'ethereum'
         self.driver = driver
+
     def get_public_nodes(self):
         self.get_page("https://www.ethernodes.org/network/1");
         list_items = self.attempt_find_element( lambda: self.driver.find_elements_by_css_selector(".pull-right.text-muted"))
