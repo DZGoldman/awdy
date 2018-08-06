@@ -13,7 +13,7 @@ class CoinScrapper:
         try:
             wealth_distribution  = self.get_wealth_distribution()
             assert(wealth_distribution)
-            new_data_for_yml['wealth_distribution'] = wealth_distribution
+            new_data_for_yml['wealth_distribution'] = str(wealth_distribution) + '%'
         except Exception as e: 
             print('ERROR FINDING {} WEALTH DISTRIBUTION'.format(self.name))
             print(e)
@@ -21,7 +21,7 @@ class CoinScrapper:
         try:
             public_node_count  = self.get_public_nodes()
             assert(public_node_count)
-            new_data_for_yml['public_nodes'] = wealth_distribution
+            new_data_for_yml['public_nodes'] = public_node_count
         except Exception as e: 
             print('ERROR FINDING {} PUBLIC NODE COUNT'.format(self.name))
             print(e)
@@ -58,6 +58,7 @@ class CoinScrapper:
 
 
     def get_page(self, url, sleep_time = False):
+        # TODO: don't get if already on page
         self.driver.get(url);
         self.sleep(sleep_time) 
 
@@ -84,7 +85,7 @@ class CoinScrapper:
         data_sum = target_sum or sorted_data.sum()
         cumulative_sum_percentages = sorted_data.cumsum() / data_sum
         # Find how many make > 90 %
-        return  np.where(cumulative_sum_percentages.gt(target_percentage) )[0][0] +1
+        return  int(np.where(cumulative_sum_percentages.gt(target_percentage) )[0][0] +1)
 
     def read_table(self, table, converters={}):
         return pd.read_html(table.get_attribute("outerHTML"), header=0, converters=converters)[0]

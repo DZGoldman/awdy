@@ -18,9 +18,8 @@ class Bitcoin(CoinScrapper):
         cleaned_text = wealth_text.replace(" ", "").split('/')
         wealth_distribution = cleaned_text[1]
         wealth_distribution = self.percentage_string_to_float(wealth_distribution)
-        wealth_distribution = str(round(wealth_distribution)) + '%'
         print('BTC % money held by 100 accounts:', wealth_distribution)
-        return wealth_distribution
+        return round(wealth_distribution)
 
     def get_client_codebases(self):
         self.get_page('https://coin.dance/nodes')
