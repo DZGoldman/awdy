@@ -4,7 +4,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 import pandas as pd
 import numpy as np
 
-
 class CoinScrapper:
 
     default_page_load_wait_time = 2
@@ -26,15 +25,32 @@ class CoinScrapper:
         except Exception as e: 
             print('ERROR FINDING {} PUBLIC NODE COUNT'.format(self.name))
             print(e)
+        
+        try:
+            client_codebases  = self.get_client_codebases()
+            assert(client_codebases)
+            new_data_for_yml['client_codebases'] = client_codebases
+        except Exception as e: 
+            print('ERROR FINDING {} CLIENT CODEBASES'.format(self.name))
+            print(e)
+        
+         
+        try:
+            consensus_distribution  = self.get_consensus_distribution()
+            assert(consensus_distribution)
+            new_data_for_yml['consensus_distribution'] = consensus_distribution
+        except Exception as e: 
+            print('ERROR FINDING {} CONSENSUS DISTRIBUTION'.format(self.name))
+            print(e)
 
-        print('new data for yml:',new_data_for_yml)
+        print('new data for yml for {}:'.format(self.name),new_data_for_yml)
         self.write_to_yml(new_data_for_yml)
 
     def write_to_yml(self, new_data):
         fname = "_data/coins/{}.yml".format(self.name)
         stream = open(fname, 'r')
         
-        data = yaml.load(stream)
+        data = yaml.load(stream).copy()
         data.update(new_data)
         with open(fname, 'w') as yaml_file:
             yaml_file.write( yaml.dump(data, default_flow_style=False))
