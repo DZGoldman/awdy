@@ -1,6 +1,9 @@
+from selenium import webdriver
+
 from bitcoin import Bitcoin
 from ethereum import Ethereum 
-from selenium import webdriver
+from ripple import Ripple
+
 options = webdriver.ChromeOptions()
 options.add_argument("headless")
 options.add_argument("window-size=1200x600")
@@ -13,5 +16,9 @@ bitcoin.main()
 
 eth = Ethereum(driver)
 eth.main()
+
+
+rip = Ripple(driver)
+rip.main()
 
 driver.quit()
