@@ -1,5 +1,5 @@
 from coinscrapper import CoinScrapper
-
+import requests
 
 class Ripple(CoinScrapper):
 
@@ -8,11 +8,20 @@ class Ripple(CoinScrapper):
         self.driver = driver
 
     def get_public_nodes(self):
-        self.get_page("https://xrpcharts.ripple.com/#/topology", sleep_time = 4)
-        nodes_element = self.attempt_find_element( lambda: self.driver.find_element_by_class_name('nNodes'))
-        public_nodes_count =  int(nodes_element.text)
-        print('XRP public nodes', public_nodes_count)
-        return public_nodes_count
+        try:
+            # first try API
+            res = requests.get('https://data.ripple.com/v2/network/topology/')
+            public_nodes_count = res.json()['node_count']
+            assert(isinstance(public_nodes_count, int))
+            print('XRP public nodes', public_nodes_count)
+            return public_nodes_count
+        except:
+            print('XRP api failed, falling back to web crawler:')
+            self.get_page("https://xrpcharts.ripple.com/#/topology", sleep_time = 4)
+            nodes_element = self.attempt_find_element( lambda: self.driver.find_element_by_class_name('nNodes'))
+            public_nodes_count =  int(nodes_element.text)
+            print('XRP public nodes', public_nodes_count)
+            return public_nodes_count
         
     def get_wealth_distribution(self):
         self.get_page("https://ledger.exposed/rich-stats");
