@@ -18,7 +18,7 @@ class CoinScrapper:
         new_data_for_yml = {}
         try:
             wealth_distribution  = self.get_wealth_distribution()
-            assert(wealth_distribution)
+            assert(0 < wealth_distribution <=100)
             new_data_for_yml['wealth_distribution'] = str(wealth_distribution) + '%'
         except Exception as e: 
             print('ERROR FINDING {} WEALTH DISTRIBUTION'.format(self.name))
@@ -26,7 +26,7 @@ class CoinScrapper:
 
         try:
             public_node_count  = self.get_public_nodes()
-            assert(public_node_count)
+            assert(public_node_count >= 1)
             new_data_for_yml['public_nodes'] = public_node_count
         except Exception as e: 
             print('ERROR FINDING {} PUBLIC NODE COUNT'.format(self.name))
@@ -34,7 +34,7 @@ class CoinScrapper:
         
         try:
             client_codebases  = self.get_client_codebases()
-            assert(client_codebases)
+            assert(client_codebases >= 1)
             new_data_for_yml['client_codebases'] = client_codebases
         except Exception as e: 
             print('ERROR FINDING {} CLIENT CODEBASES'.format(self.name))
@@ -43,7 +43,7 @@ class CoinScrapper:
          
         try:
             consensus_distribution  = self.get_consensus_distribution()
-            assert(consensus_distribution)
+            assert(consensus_distribution >= 1)
             new_data_for_yml['consensus_distribution'] = consensus_distribution
         except Exception as e: 
             print('ERROR FINDING {} CONSENSUS DISTRIBUTION'.format(self.name))
