@@ -10,7 +10,7 @@ class Bitcoin(CoinScrapper):
         self.get_page("https://coin.dance/nodes");
         node_count_container = self.attempt_find_element( lambda: self.driver.find_element_by_css_selector("[title].nodeTitle > strong"))
         public_nodes_source = node_count_container.text
-        return public_nodes_source
+        return int(public_nodes_source)
         
     def get_wealth_distribution(self):
         self.get_page("https://bitinfocharts.com/bitcoin/");
