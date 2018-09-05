@@ -30,7 +30,7 @@ class Ethereum(CoinScrapper):
         if not len(percentages) == 100:
             return False
         wealth_distribution = readtable['Percentage'].sum()
-        return round(float(wealth_distribution))
+        return wealth_distribution
 
     def get_client_codebases(self):
         self.get_page("https://www.ethernodes.org/network/1");

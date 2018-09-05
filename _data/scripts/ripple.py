@@ -36,7 +36,7 @@ class Ripple(CoinScrapper):
             assert(isinstance(wealth_distribution, float))
             
             # convert to %
-            wealth_distribution = round(wealth_distribution * 100)
+            wealth_distribution = wealth_distribution * 100
             return wealth_distribution
             
         except:   

@@ -19,7 +19,7 @@ class Bitcoin(CoinScrapper):
         cleaned_text = wealth_text.replace(" ", "").split('/')
         wealth_distribution = cleaned_text[1]
         wealth_distribution = self.percentage_string_to_float(wealth_distribution)
-        return round(wealth_distribution)
+        return wealth_distribution
 
     def get_client_codebases(self):
         self.get_page('https://coin.dance/nodes')
@@ -36,4 +36,4 @@ class Bitcoin(CoinScrapper):
         table = self.attempt_find_element( lambda: self.driver.find_element_by_id("known_pools"))
         pools = self.read_table(table,converters={"count": int} )
         cumulative_sum = self.get_cumulative_grouping_count(pools['count'], 0.5)
-        return int(cumulative_sum)
+        return cumulative_sum
