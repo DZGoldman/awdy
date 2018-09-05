@@ -15,7 +15,6 @@ class Ethereum(CoinScrapper):
         total_node_text = [e.text for e in list_items if '(100%)' in e.text][0]
         # Extract count from string
         public_node_count= re.sub("[\(\[].*?[\)\]]", "", total_node_text).strip()
-        print('Eth node count: ', public_node_count)
         return int(public_node_count)
         
     def get_wealth_distribution(self):
@@ -31,7 +30,6 @@ class Ethereum(CoinScrapper):
         if not len(percentages) == 100:
             return False
         wealth_distribution = readtable['Percentage'].sum()
-        print('ETH wealth distribution:', wealth_distribution)
         return round(float(wealth_distribution))
 
     def get_client_codebases(self):
@@ -45,7 +43,6 @@ class Ethereum(CoinScrapper):
         client_data_df = pd.DataFrame(client_data_json)
         # Sort values (values are node counts)
         client_codebases = self.get_cumulative_grouping_count(client_data_df['value'], .9)
-        print('Eth codebases count:', client_codebases)
         return client_codebases
 
     def get_consensus_distribution(self):
@@ -56,5 +53,4 @@ class Ethereum(CoinScrapper):
        
         consensus_distribution = self.get_cumulative_grouping_count(readtable['Percentage'], .5, target_sum = 100)
 
-        print('Eth consensus distribution:', consensus_distribution)
         return consensus_distribution
