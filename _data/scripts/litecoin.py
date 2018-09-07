@@ -6,10 +6,11 @@ class Litecoin(CoinScrapper, CryptoidAPI):
     def __init__ (self, driver):
         self.name = 'litecoin'
         self.driver = driver
+        self.symbol = 'ltc'
 
     def get_public_nodes(self):
         try:
-            public_nodes_count = self.cryptoid_api_nodes('ltc')
+            public_nodes_count = self.cryptoid_api_nodes()
             assert(isinstance(public_nodes_count, int))
             return public_nodes_count
         except:
@@ -22,10 +23,10 @@ class Litecoin(CoinScrapper, CryptoidAPI):
             return public_nodes_count
 
     def get_wealth_distribution(self):
-        return self.cryptoid_api_wealth_distribution('ltc')
+        return self.cryptoid_api_wealth_distribution()
 
     def get_client_codebases(self):
-        return self.cryptoid_api_node_types('ltc')
+        return self.cryptoid_api_node_types()
 
     def get_consensus_distribution(self):
         self.get_page("https://www.litecoinpool.org/pools")

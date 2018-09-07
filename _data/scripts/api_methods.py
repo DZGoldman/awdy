@@ -4,22 +4,22 @@ from collections import defaultdict
 
 chainz_root = 'https://chainz.cryptoid.info/{symbol}/api.dws?q={query}'
 class CryptoidAPI():
-    def _get_nodes_data_(self, symbol):
+    def _get_nodes_data_(self):
         # memoize to save an api call
         if not hasattr(self, 'nodes_result'):
-            r = requests.get(chainz_root.format(symbol=symbol, query="nodes"))
+            r = requests.get(chainz_root.format(symbol=self.symbol, query="nodes"))
             time.sleep(2)
             data = r.json()
             self.nodes_result = data
             return data
         else:
             return self.nodes_result 
-    def cryptoid_api_nodes(self, symbol):
-        data = self._get_nodes_data_(symbol)
+    def cryptoid_api_nodes(self):
+        data = self._get_nodes_data_()
         return sum( [len(d['nodes']) for d in data ] )
 
-    def cryptoid_api_wealth_distribution(self, symbol):
-        r = requests.get(chainz_root.format(symbol=symbol, query="rich"))
+    def cryptoid_api_wealth_distribution(self):
+        r = requests.get(chainz_root.format(symbol= self.symbol, query="rich"))
         time.sleep(2)
         data = r.json()
         total = data['total']
@@ -27,8 +27,8 @@ class CryptoidAPI():
         distribution = sum([wallet['amount'] for wallet in rich_list]) / total
         return distribution * 100
 
-    def cryptoid_api_node_types(self, symbol):
-        data = self._get_nodes_data_(symbol)
+    def cryptoid_api_node_types(self):
+        data = self._get_nodes_data_()
         mapping = defaultdict(int)
         for client in data:
             version = client['subver']
