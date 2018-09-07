@@ -10,7 +10,7 @@ class CoinScrapper(ReusableMethods):
     All coins will inherit from this class
     '''
     # constants:
-    default_page_load_wait_time = 2
+    default_page_load_wait_time = 1
 
     def main(self):
         '''
@@ -76,12 +76,23 @@ class CoinScrapper(ReusableMethods):
         time.sleep(sleep_time or self.default_page_load_wait_time)
 
 
-    def attempt_find_element(self, cb, wait_time=10):
+    def find_element(self, css_selector, wait_time=10):
         '''
         Wrapper to use with 'find_element' methods. wait_time can be overridden for particularly persnickety cases.
         use : lib.attempt_find_element( lambda: find_element_by_id('#interesting_data'), driver = driver)
         '''
-        return WebDriverWait(self.driver, wait_time).until(lambda x: cb())
+        # count_containers = self.attempt_find_element( lambda: self.driver.find_elements_by_css_selector(".nodeCountBlock > h3 > .nodeTitle > strong"))
+        return WebDriverWait(self.driver, wait_time).until(lambda x: self.driver.find_element_by_css_selector(css_selector) )
+
+
+    def find_elements(self, css_selector, wait_time=10):
+        '''
+        Wrapper to use with 'find_element' methods. wait_time can be overridden for particularly persnickety cases.
+        use : lib.attempt_find_element( lambda: find_element_by_id('#interesting_data'), driver = driver)
+        '''
+        # count_containers = self.attempt_find_element( lambda: self.driver.find_elements_by_css_selector(".nodeCountBlock > h3 > .nodeTitle > strong"))
+        return WebDriverWait(self.driver, wait_time).until(lambda x: self.driver.find_elements_by_css_selector(css_selector) )
+
 
     def percentage_string_to_float(self, st):
         return float(st.replace('%', '').strip())
