@@ -17,7 +17,7 @@ class Ripple(CoinScrapper):
         except:
             print('XRP api failed (xrp charts), falling back to web crawler:')
             self.get_page("https://xrpcharts.ripple.com/#/topology", sleep_time = 4)
-            nodes_element = self.attempt_find_element( lambda: self.driver.find_element_by_class_name('nNodes'))
+            nodes_element = self.find_element('.nNodes')
             public_nodes_count =  int(nodes_element.text)
             return public_nodes_count
         
@@ -43,7 +43,7 @@ class Ripple(CoinScrapper):
             print('XRP api failed (ledger exposed), falling back to web crawler:') 
             # in case api is down but site is still up? unlikely, but may as well try:
             self.get_page("https://ledger.exposed/rich-stats");
-            wealth_distribution =  self.attempt_find_element( lambda:self.driver.find_element_by_css_selector('[data-v-ca88cbc2].large > b')).text
+            wealth_distribution =  self.find_element('[data-v-ca88cbc2].large > b').text
             wealth_distribution = self.percentage_string_to_float(wealth_distribution)
             return wealth_distribution
     def get_client_codebases(self):

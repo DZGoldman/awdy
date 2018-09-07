@@ -10,7 +10,7 @@ class Ethereum(CoinScrapper):
 
     def get_public_nodes(self):
         self.get_page("https://www.ethernodes.org/network/1");
-        list_items = self.attempt_find_element( lambda: self.driver.find_elements_by_css_selector(".pull-right.text-muted"))
+        list_items = self.find_elements(".pull-right.text-muted")
         # Get "total node" element (has 100% in text)
         total_node_text = [e.text for e in list_items if '(100%)' in e.text][0]
         # Extract count from string
@@ -20,7 +20,7 @@ class Ethereum(CoinScrapper):
     def get_wealth_distribution(self):
         self.get_page("https://etherscan.io/accounts/1?ps=100");
         # # Get data from page
-        table = self.attempt_find_element( lambda: self.driver.find_element_by_css_selector(".table"))
+        table = self.find_element(".table")
 
         # Read table as dataframe, sanitizing % column to float
         readtable = self.read_table(table, converters = {"Percentage": self.percentage_string_to_float })
@@ -34,7 +34,7 @@ class Ethereum(CoinScrapper):
 
     def get_client_codebases(self):
         self.get_page("https://www.ethernodes.org/network/1");
-        client_graph =  self.attempt_find_element( lambda: self.driver.find_element_by_class_name('ex-graph'))
+        client_graph =  self.find_element('.ex-graph')
         # Extract stringified json
         client_data_json_string = client_graph.get_attribute('data-value')
         # Convert to dictionary
@@ -47,7 +47,7 @@ class Ethereum(CoinScrapper):
 
     def get_consensus_distribution(self):
         self.get_page("https://etherscan.io/stat/miner?range=7&blocktype=blocks");
-        table = self.attempt_find_element( lambda: self.driver.find_element_by_css_selector(".table"))
+        table = self.find_element(".table")
         # read table, sanitize percentage
         readtable = self.read_table(table, converters={"Percentage":self.percentage_string_to_float })
        

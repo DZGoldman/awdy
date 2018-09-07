@@ -15,7 +15,7 @@ class Litecoin(CoinScrapper):
         except:
             print('cryptoid api failed for LTC, falling back to scraper: ')
             self.get_page("https://chainz.cryptoid.info/ltc/#!network")
-            table = self.attempt_find_element(lambda:  self.driver.find_element_by_id('network-clients'))
+            table = self.find_element('#network-clients')
             # NOTE: table has a column withouth a header which offsets the other column by 1, so we need to use network share, not count
             readtable = self.read_table(table, converters = {"Network Share": float})
             public_nodes_count = int(readtable['Network Share'].sum())
@@ -30,7 +30,7 @@ class Litecoin(CoinScrapper):
     def get_consensus_distribution(self):
         self.get_page("https://www.litecoinpool.org/pools")
         # table is unlabled, but it's the second on that page:
-        chart = self.attempt_find_element( lambda: self.driver.find_element_by_id('hashpie'))
+        chart = self.find_element('#hashpie')
         wedges = chart.find_elements_by_tag_name('g')
         data_sanitized = [self.percentage_string_to_float(w.text) for w in wedges if w.text]
         consensus_distribution = self.get_cumulative_grouping_count(data_sanitized, .5, target_sum = 100)

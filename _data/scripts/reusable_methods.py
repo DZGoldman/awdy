@@ -37,7 +37,7 @@ class ReusableMethods():
 
     def bitinfo_wealth_dist(self):
         self.get_page("https://bitinfocharts.com/" + self.name)
-        table = self.attempt_find_element(lambda: self.driver.find_element_by_css_selector('.table'))
+        table = self.find_element('.table')
         read_table = self.read_table(table)
         values = read_table.values
         for row in values:
@@ -47,7 +47,7 @@ class ReusableMethods():
                 return percentage_data[0]
     def chains_consensus_scrape(self):    
         self.get_page("https://chainz.cryptoid.info/{symbol}/#!extraction".format(symbol = self.symbol))
-        table = self.attempt_find_element( lambda: self.driver.find_element_by_id('pools-share'))
+        table = self.find_element('#pools-share')
         read_table = self.read_table(table ,converters={"Last 1000": self.percentage_string_to_float})
         return self.get_cumulative_grouping_count(read_table["Last 1000"], .5)
 
