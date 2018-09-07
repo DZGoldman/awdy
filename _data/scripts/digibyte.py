@@ -1,7 +1,6 @@
 from coinscrapper import CoinScrapper
-from api_methods import CryptoidAPI
 
-class Digibyte(CoinScrapper, CryptoidAPI):
+class Digibyte(CoinScrapper):
 
     def __init__ (self, driver):
         self.name = 'digibyte'

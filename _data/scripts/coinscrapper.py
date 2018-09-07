@@ -3,8 +3,9 @@ import time
 from selenium.webdriver.support.ui import WebDriverWait
 import pandas as pd
 import numpy as np
+from reusable_methods import ReusableMethods
 
-class CoinScrapper:
+class CoinScrapper(ReusableMethods):
     '''
     All coins will inherit from this class
     '''

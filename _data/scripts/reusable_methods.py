@@ -1,8 +1,7 @@
 import requests, time
-from coinscrapper import CoinScrapper
 from collections import defaultdict 
 chainz_root = 'https://chainz.cryptoid.info/{symbol}/api.dws?q={query}'
-class CryptoidAPI():
+class ReusableMethods():
     def _get_nodes_data_(self):
         # memoize to save an api call
         if not hasattr(self, 'nodes_result'):

@@ -1,7 +1,6 @@
 from coinscrapper import CoinScrapper
-from api_methods import CryptoidAPI
 
-class Litecoin(CoinScrapper, CryptoidAPI):
+class Litecoin(CoinScrapper):
 
     def __init__ (self, driver):
         self.name = 'litecoin'
