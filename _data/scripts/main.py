@@ -36,11 +36,10 @@ for coin in [
     Bitcoin, 
     Ethereum, 
     Ripple,
-    Litecoin
-    # ,
-    # Stellar,
-    # BitcoinCash, 
+    Litecoin,
+    BitcoinCash, 
     # Digibyte,
+    # Stellar,
     # Dogecoin
     # Monero,
     # Neo,
@@ -57,7 +56,7 @@ for coin in [
     # Qtum,
     # Tezos ,
     # Vertcoin,
-    # Zencash
+    # Zencash,
     ]:
     coin(driver).main()
 

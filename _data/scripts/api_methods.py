@@ -1,7 +1,6 @@
 import requests, time
 from coinscrapper import CoinScrapper
 from collections import defaultdict 
-
 chainz_root = 'https://chainz.cryptoid.info/{symbol}/api.dws?q={query}'
 class CryptoidAPI():
     def _get_nodes_data_(self):
@@ -36,3 +35,15 @@ class CryptoidAPI():
             mapping[client_name] += len(client['nodes'])
         values = list(mapping.values())
         return self.get_cumulative_grouping_count(values, .9)
+
+    def bitinfo_wealth_dist(self):
+        self.get_page("https://bitinfocharts.com/" + self.name)
+        table = self.attempt_find_element(lambda: self.driver.find_element_by_css_selector('.table'))
+        read_table = self.read_table(table)
+        values = read_table.values
+        for row in values:
+            if row[0] == 'Top 100 Richest':
+                data = row[1]
+                percentage_data = [self.percentage_string_to_float(word) for word in data.split() if '%' in word]
+                return percentage_data[0]
+

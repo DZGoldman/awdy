@@ -56,7 +56,7 @@ class CoinScrapper:
         '''
         overwrites new values in new_data dictionary to yml file
         '''
-        fname = "_data/coins/{}.yml".format(self.name)
+        fname = "_data/coins/{}.yml".format(self.name.replace(' ', '-'))
         stream = open(fname, 'r')
         
         data = yaml.load(stream).copy()
