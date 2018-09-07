@@ -35,10 +35,10 @@ driver = webdriver.Chrome(chrome_options=options)
 for coin in [
     Bitcoin, 
     Ethereum, 
-    Ripple
+    Ripple,
+    Litecoin
     # ,
     # Stellar,
-    # Litecoin,
     # BitcoinCash, 
     # Digibyte,
     # Dogecoin
