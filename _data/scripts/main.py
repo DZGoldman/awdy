@@ -38,7 +38,7 @@ for coin in [
     Ripple,
     Litecoin,
     BitcoinCash, 
-    # Digibyte,
+    Digibyte,
     # Stellar,
     # Dogecoin
     # Monero,

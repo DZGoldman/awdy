@@ -1,19 +1,20 @@
 from coinscrapper import CoinScrapper
+from api_methods import CryptoidAPI
 
-class Digibyte(CoinScrapper):
+class Digibyte(CoinScrapper, CryptoidAPI):
 
     def __init__ (self, driver):
         self.name = 'digibyte'
         self.driver = driver
-
+        self.symbol = 'dgb'
     def get_public_nodes(self):
-        pass
+        return self.cryptoid_api_nodes()
         
     def get_wealth_distribution(self):
-        pass
+        return self.cryptoid_api_wealth_distribution()
 
     def get_client_codebases(self):
-        pass
+        return self.cryptoid_api_node_types()
 
     def get_consensus_distribution(self):
-        pass
+        return self.chains_consensus_scrape()

@@ -46,4 +46,9 @@ class CryptoidAPI():
                 data = row[1]
                 percentage_data = [self.percentage_string_to_float(word) for word in data.split() if '%' in word]
                 return percentage_data[0]
+    def chains_consensus_scrape(self):    
+        self.get_page("https://chainz.cryptoid.info/{symbol}/#!extraction".format(symbol = self.symbol))
+        table = self.attempt_find_element( lambda: self.driver.find_element_by_id('pools-share'))
+        read_table = self.read_table(table ,converters={"Last 1000": self.percentage_string_to_float})
+        return self.get_cumulative_grouping_count(read_table["Last 1000"], .5)
 
