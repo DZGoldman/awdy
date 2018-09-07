@@ -7,13 +7,16 @@ class Cardano(CoinScrapper):
         self.driver = driver
 
     def get_public_nodes(self):
-        pass
+        return 1
         
     def get_wealth_distribution(self):
-        pass
-
+        self.get_page("https://adatracker.com/richest")
+        table = self.find_element('.table')
+        read_table = self.read_table(table, converters = {"Share": self.percentage_string_to_float})
+        wealth_share = read_table['Share']
+        return wealth_share.sum()
     def get_client_codebases(self):
-        pass
+        return 1
 
     def get_consensus_distribution(self):
-        pass
+        return 1
