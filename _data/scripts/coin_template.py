@@ -1,8 +1,9 @@
 from coinscrapper import CoinScrapper
 
-# empty template for creating new coin, just for convenience
 class SomeCoin(CoinScrapper):
-
+'''
+all methods should return ints, except wealth distribution, which can return a float
+'''
     def __init__ (self, driver):
         self.name = 'somecoin'
         self.driver = driver
