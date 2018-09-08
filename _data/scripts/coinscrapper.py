@@ -19,24 +19,33 @@ class CoinScrapper(ReusableMethods):
         new_data_for_yml = {}
         try:
             wealth_distribution  = self.get_wealth_distribution()
-            assert(0 < wealth_distribution <=100)
-            new_data_for_yml['wealth_distribution'] = str( round(wealth_distribution,2 ) ) + '%'
+            if wealth_distribution == 'n/a':
+                 new_data_for_yml['wealth_distribution'] = ''
+            else:
+                assert(0 < wealth_distribution <=100)
+                new_data_for_yml['wealth_distribution'] = str( round(wealth_distribution,2 ) ) + '%'
         except Exception as e: 
             print('ERROR FINDING {} WEALTH DISTRIBUTION'.format(self.name))
             print(e)
 
         try:
             public_node_count  = self.get_public_nodes()
-            assert(public_node_count >= 1)
-            new_data_for_yml['public_nodes'] = public_node_count
+            if public_node_count == 'n/a':
+                 new_data_for_yml['public_nodes'] = ''
+            else:
+                assert(public_node_count >= 1)
+                new_data_for_yml['public_nodes'] = public_node_count
         except Exception as e: 
             print('ERROR FINDING {} PUBLIC NODE COUNT'.format(self.name))
             print(e)
         
         try:
             client_codebases  = self.get_client_codebases()
-            assert(client_codebases >= 1)
-            new_data_for_yml['client_codebases'] = client_codebases
+            if client_codebases == 'n/a':
+                 new_data_for_yml['client_codebases'] = ''
+            else:
+                assert(client_codebases >= 1)
+                new_data_for_yml['client_codebases'] = client_codebases
         except Exception as e: 
             print('ERROR FINDING {} CLIENT CODEBASES'.format(self.name))
             print(e)
@@ -44,8 +53,11 @@ class CoinScrapper(ReusableMethods):
          
         try:
             consensus_distribution  = self.get_consensus_distribution()
-            assert(consensus_distribution >= 1)
-            new_data_for_yml['consensus_distribution'] = consensus_distribution
+            if consensus_distribution == 'n/a':
+                 new_data_for_yml['consensus_distribution'] = ''
+            else:
+                assert(consensus_distribution >= 1)
+                new_data_for_yml['consensus_distribution'] = consensus_distribution
         except Exception as e: 
             print('ERROR FINDING {} CONSENSUS DISTRIBUTION'.format(self.name))
             print(e)

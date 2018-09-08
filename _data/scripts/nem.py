@@ -21,5 +21,4 @@ class Nem(CoinScrapper):
         return 1
 
     def get_consensus_distribution(self):
-        # TODO: handle '?'
-        return 1
+        return 'n/a'
