@@ -41,6 +41,7 @@ for coin in [
     Digibyte,
     Dash,
     Cardano,
+    Iota,
     # Stellar,
     # Dogecoin
     # Monero,
@@ -50,7 +51,6 @@ for coin in [
     # Ardor,
     # Decred,
     # EthereumClassic,
-    # Iota,
     # Nano,
     # Nem,
     # Qtum,
