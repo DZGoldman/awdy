@@ -1,5 +1,5 @@
 from selenium import webdriver
-
+import time
 from bitcoin import Bitcoin
 from ethereum import Ethereum 
 from ripple import Ripple
@@ -32,6 +32,7 @@ options.add_argument("window-size=1200x600")
 # Start driver with specified options
 driver = webdriver.Chrome(chrome_options=options) 
 
+start = time.time()
 for coin in [
     Bitcoin, 
     Ethereum, 
@@ -42,6 +43,7 @@ for coin in [
     Dash,
     Cardano,
     Iota,
+    Nem,
     # Stellar,
     # Dogecoin
     # Monero,
@@ -52,7 +54,6 @@ for coin in [
     # Decred,
     # EthereumClassic,
     # Nano,
-    # Nem,
     # Qtum,
     # Tezos ,
     # Vertcoin,
@@ -60,5 +61,6 @@ for coin in [
     ]:
     coin(driver).main()
 
+print('Scrape completed in ', time.time() - start)
 
 driver.quit()
