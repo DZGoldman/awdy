@@ -24,6 +24,7 @@ from qtum import Qtum
 from tezos import Tezos 
 from vertcoin import Vertcoin 
 from zencash import Zencash
+from myriad import Myriad
 
 options = webdriver.ChromeOptions()
 options.add_argument("headless")
@@ -44,19 +45,20 @@ for coin in [
     Cardano,
     Iota,
     Nem,
-    # Stellar,
+    Vertcoin,
+    Myriad,
+    Nano,
+    # ZCash,
+    # Tezos ,
+    # Decred,
     # Dogecoin
     # Monero,
+    # Stellar,
     # Neo,
     # Siacoin,
-    # ZCash,
     # Ardor,
-    # Decred,
     # EthereumClassic,
-    # Nano,
     # Qtum,
-    # Tezos ,
-    # Vertcoin,
     # Zencash,
     ]:
     coin(driver).main()
