@@ -1,15 +1,17 @@
 from coinscrapper import CoinScrapper
 
-class Vertcoin(CoinScrapper):
-
+class Myriad(CoinScrapper):
+    '''
+    all methods should return ints, except wealth distribution, which can return a float
+    '''
     def __init__ (self, driver):
-        self.name = 'vertcoin'
+        self.name = 'myriad'
         self.driver = driver
-        self.symbol = 'vtc'
+        self.symbol = 'xmy'
 
     def get_public_nodes(self):
-        return self.cryptoid_api_nodes()
-        
+            return self.cryptoid_api_nodes()
+            
     def get_wealth_distribution(self):
         return self.cryptoid_api_wealth_distribution()
 
