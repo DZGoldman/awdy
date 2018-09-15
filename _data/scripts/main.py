@@ -48,13 +48,14 @@ for coin in [
     Vertcoin,
     Myriad,
     Nano,
+    Neo,
+
     # ZCash,
     # Tezos ,
     # Decred,
     # Dogecoin
     # Monero,
     # Stellar,
-    # Neo,
     # Siacoin,
     # Ardor,
     # EthereumClassic,
