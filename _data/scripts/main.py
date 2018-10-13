@@ -49,9 +49,10 @@ for coin in [
     Myriad,
     Nano,
     Neo,
-
+    Tezos,
+    
+    # Qtum,
     # ZCash,
-    # Tezos ,
     # Decred,
     # Dogecoin
     # Monero,
@@ -59,7 +60,6 @@ for coin in [
     # Siacoin,
     # Ardor,
     # EthereumClassic,
-    # Qtum,
     # Zencash,
     ]:
     coin(driver).main()
