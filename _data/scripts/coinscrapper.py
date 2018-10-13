@@ -1,5 +1,4 @@
-import yaml
-import time
+import yaml, re, time
 from selenium.webdriver.support.ui import WebDriverWait
 import pandas as pd
 import numpy as np
@@ -108,6 +107,13 @@ class CoinScrapper(ReusableMethods):
 
     def percentage_string_to_float(self, st):
         return float(st.replace('%', '').strip())
+    
+    def extract_only_ints(self, r):
+        s = ''.join(x for x in r if x.isdigit())
+        return int(s)
+
+    def extract_first_int(self, string):
+        return int(re.search(r'\d+', string).group())
 
     def get_cumulative_grouping_count(self, data, target_percentage, target_sum = False):
         '''
