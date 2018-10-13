@@ -50,10 +50,10 @@ for coin in [
     Nano,
     Neo,
     Tezos,
+    Decred,
     
     # Qtum,
     # ZCash,
-    # Decred,
     # Dogecoin
     # Monero,
     # Stellar,
