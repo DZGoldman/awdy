@@ -51,18 +51,27 @@ for coin in [
     Neo,
     Tezos,
     Decred,
-    
-    # Qtum,
-    # ZCash,
-    # Dogecoin
-    # Monero,
-    # Stellar,
+
     # Siacoin,
+    
+    # ZCash,
+    # Stellar,
     # Ardor,
-    # EthereumClassic,
+
     # Zencash,
+    # Monero,
+    # Dogecoin
+    # EthereumClassic,
+    # Qtum,
     ]:
-    coin(driver).main()
+    coin(driver).main(
+        {
+                'wealth_distribution': True,
+                'public_node_count' : True,
+                'consensus_distribution': True,
+                'client_codebases': True
+            }
+    )
 
 print('Scrape completed in ', time.time() - start)
 

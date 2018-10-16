@@ -11,55 +11,65 @@ class CoinScrapper(ReusableMethods):
     # constants:
     default_page_load_wait_time = 1
 
-    def main(self):
+    def main(self, options = {}):
+        options = {
+            **{
+                'wealth_distribution': True,
+                'public_node_count' : True,
+                'consensus_distribution': True,
+                'client_codebases': True
+            }, **options
+        }
         '''
         triggers all 4 data collection methods and writes to yml (good place to start if following logic of program)
         '''
         new_data_for_yml = {}
-        try:
-            wealth_distribution  = self.get_wealth_distribution()
-            if wealth_distribution == 'n/a':
-                 new_data_for_yml['wealth_distribution'] = ''
-            else:
-                assert(0 < wealth_distribution <=100)
-                new_data_for_yml['wealth_distribution'] = str( round(wealth_distribution,2 ) ) + '%'
-        except Exception as e: 
-            print('ERROR FINDING {} WEALTH DISTRIBUTION'.format(self.name))
-            print(e)
+        if options['wealth_distribution']:
+            try:
+                wealth_distribution  = self.get_wealth_distribution()
+                if wealth_distribution == 'n/a':
+                    new_data_for_yml['wealth_distribution'] = ''
+                else:
+                    assert(0 < wealth_distribution <=100)
+                    new_data_for_yml['wealth_distribution'] = str( round(wealth_distribution,2 ) ) + '%'
+            except Exception as e: 
+                print('ERROR FINDING {} WEALTH DISTRIBUTION'.format(self.name))
+                print(e)
 
-        try:
-            public_node_count  = self.get_public_nodes()
-            if public_node_count == 'n/a':
-                 new_data_for_yml['public_nodes'] = ''
-            else:
-                assert(public_node_count >= 1)
-                new_data_for_yml['public_nodes'] = public_node_count
-        except Exception as e: 
-            print('ERROR FINDING {} PUBLIC NODE COUNT'.format(self.name))
-            print(e)
+        if options['public_node_count']:
+            try:
+                public_node_count  = self.get_public_nodes()
+                if public_node_count == 'n/a':
+                    new_data_for_yml['public_nodes'] = ''
+                else:
+                    assert(public_node_count >= 1)
+                    new_data_for_yml['public_nodes'] = public_node_count
+            except Exception as e: 
+                print('ERROR FINDING {} PUBLIC NODE COUNT'.format(self.name))
+                print(e)
+        if options['client_codebases']:
+            try:
+                client_codebases  = self.get_client_codebases()
+                if client_codebases == 'n/a':
+                    new_data_for_yml['client_codebases'] = ''
+                else:
+                    assert(client_codebases >= 1)
+                    new_data_for_yml['client_codebases'] = client_codebases
+            except Exception as e: 
+                print('ERROR FINDING {} CLIENT CODEBASES'.format(self.name))
+                print(e)
         
-        try:
-            client_codebases  = self.get_client_codebases()
-            if client_codebases == 'n/a':
-                 new_data_for_yml['client_codebases'] = ''
-            else:
-                assert(client_codebases >= 1)
-                new_data_for_yml['client_codebases'] = client_codebases
-        except Exception as e: 
-            print('ERROR FINDING {} CLIENT CODEBASES'.format(self.name))
-            print(e)
-        
-         
-        try:
-            consensus_distribution  = self.get_consensus_distribution()
-            if consensus_distribution == 'n/a':
-                 new_data_for_yml['consensus_distribution'] = ''
-            else:
-                assert(consensus_distribution >= 1)
-                new_data_for_yml['consensus_distribution'] = consensus_distribution
-        except Exception as e: 
-            print('ERROR FINDING {} CONSENSUS DISTRIBUTION'.format(self.name))
-            print(e)
+        if options['consensus_distribution']:
+            try:
+                consensus_distribution  = self.get_consensus_distribution()
+                if consensus_distribution == 'n/a':
+                    new_data_for_yml['consensus_distribution'] = ''
+                else:
+                    assert(consensus_distribution >= 1)
+                    new_data_for_yml['consensus_distribution'] = consensus_distribution
+            except Exception as e: 
+                print('ERROR FINDING {} CONSENSUS DISTRIBUTION'.format(self.name))
+                print(e)
 
         print('new data for yml for {}:'.format(self.name),new_data_for_yml)
         self.write_to_yml(new_data_for_yml)
