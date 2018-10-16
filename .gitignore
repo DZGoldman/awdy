@@ -11,3 +11,6 @@ _site
 ehthumbs.db
 Thumbs.db
 _data/scripts/__pycache__
+.env
+scrap.py
+_data/coins/*
