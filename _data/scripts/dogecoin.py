@@ -7,13 +7,14 @@ class Dogecoin(CoinScrapper):
         self.driver = driver
 
     def get_public_nodes(self):
-        pass
+        return 'n/a'
         
     def get_wealth_distribution(self):
-        pass
+        return self.bitinfo_wealth_dist()
 
     def get_client_codebases(self):
-        pass
+        return 'n/a'
 
     def get_consensus_distribution(self):
+        # TODO can't get from source (pie chart)
         pass

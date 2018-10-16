@@ -7,13 +7,16 @@ class Monero(CoinScrapper):
         self.driver = driver
 
     def get_public_nodes(self):
-        pass
+        self.get_page("https://monerohash.com/nodes-distribution.html")
+        el = self.find_element("#total-nodes").text
+        return int(el)
         
     def get_wealth_distribution(self):
-        pass
+        return 'n/a'
 
     def get_client_codebases(self):
-        pass
+        return 1
 
     def get_consensus_distribution(self):
+        # TODO can't get from source (pdf)
         pass

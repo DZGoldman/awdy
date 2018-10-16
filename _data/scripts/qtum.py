@@ -8,11 +8,10 @@ class Qtum(CoinScrapper):
         self.driver = driver
 
     def get_public_nodes(self):
-        # page not loading / too slow?
+        #TODO page not loading / too slow?
         print('getting public nodes')
-        self.get_page("https://qtum.org/en", sleep_time=120)
+        self.get_page("https://qtum.org/en")
         el = self.find_elements('.odomenter-value')
-        print('?????????')
         print(el.text)
         
     def get_wealth_distribution(self):
@@ -29,4 +28,5 @@ class Qtum(CoinScrapper):
         return 1
 
     def get_consensus_distribution(self):
+        # TODO need source
         pass

@@ -7,13 +7,17 @@ class ZCash(CoinScrapper):
         self.driver = driver
 
     def get_public_nodes(self):
-        pass
+        self.get_page("https://explorer.zcha.in/network")
+        el = self.find_element("#count")
+        print(el)
+        return self.extract_first_int(el.text)
         
     def get_wealth_distribution(self):
-        pass
+        return 'n/a'
 
     def get_client_codebases(self):
-        pass
+        return 1
 
     def get_consensus_distribution(self):
+        # TODO can't get from source (pie chart)
         pass

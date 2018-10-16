@@ -53,10 +53,11 @@ for coin in [
     Decred,
     Siacoin,
     
-    # ZCash,
-    # Stellar,
+    
+    # Incomplete:
     # Ardor,
-
+    # Stellar,
+    # ZCash,
     # Zencash,
     # Monero,
     # Dogecoin
