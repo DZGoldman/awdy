@@ -51,8 +51,7 @@ for coin in [
     Neo,
     Tezos,
     Decred,
-
-    # Siacoin,
+    Siacoin,
     
     # ZCash,
     # Stellar,
