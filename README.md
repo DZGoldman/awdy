@@ -35,6 +35,7 @@ ardor:
 Vertcoin: used chainz for all
 
 
+
         # self.get_page("https://bitinfocharts.com/top-100-richest-bitcoin%20cash-addresses.html");
 
         # # # Get data from page
