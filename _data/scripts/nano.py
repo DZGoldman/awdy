@@ -6,14 +6,15 @@ class Nano(CoinScrapper):
         self.driver = driver
     # NOTE: these may be a bit too ad hoc
     def get_public_nodes(self):
-        self.get_page('https://nanocrawler.cc/status', sleep_time=3)
+        self.get_page('https://nanocrawler.cc/status')
         els = self.find_elements('.text-muted')
         peer_el = [el for el in els if el.text == 'Peers'][0]
         parent = peer_el.find_element_by_xpath('..')  
         return self.extract_first_int(parent.text)
 
     def get_wealth_distribution(self):
-        self.get_page('https://nanocrawler.cc/explorer/top_accounts', sleep_time=3)
+        # source down:
+        self.get_page('https://nanocrawler.cc/explorer/top_accounts')
         els = self.find_elements('.text-dark')
         el = [el for el in els if "total supply" in el.text][0]
         return self.extract_first_int(el.text)
