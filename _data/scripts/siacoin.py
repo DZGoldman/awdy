@@ -27,5 +27,5 @@ class Siacoin(CoinScrapper):
             except:
                 pass
         # sanity
-        assert(len(percentages) >= 7)
+        assert(len(percentages) >= 1)
         return self.get_cumulative_grouping_count(percentages, 0.5, 100)
