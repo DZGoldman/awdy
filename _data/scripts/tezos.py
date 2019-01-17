@@ -31,5 +31,5 @@ class Tezos(CoinScrapper):
         # TODO: Currently doesn't include 'other' - NEED TO BE CONSISTENT ACCROSS COINS (I think we should just list the 'unknown %')
         self.get_page("https://tzscan.io/rolls-distribution")
         table = self.find_element('.table')
-        readtable = self.read_table(table, converters = {'percent': self.percentage_string_to_float})
-        return self.get_cumulative_grouping_count(readtable['percent'], .5)
+        readtable = self.read_table(table, converters = {'Percent': self.percentage_string_to_float})
+        return self.get_cumulative_grouping_count(readtable['Percent'], .5)
