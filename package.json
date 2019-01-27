@@ -4,7 +4,10 @@
   "private": true,
   "dependencies": {
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "react-bootstrap": "^0.32.4",
+    "react-favicon": "0.0.14",
+    "react-flip-move": "^3.0.3"
   },
   "devDependencies": {
     "react-scripts": "2.1.0"

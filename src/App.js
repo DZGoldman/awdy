@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import FlipMove from "react-flip-move";
+import { Table } from "react-bootstrap";
+import Favicon from 'react-favicon';
 
 class App extends Component {
   constructor(props) {
