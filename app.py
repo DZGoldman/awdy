@@ -10,30 +10,35 @@ app = Flask(__name__, static_folder="./build/static", template_folder="./build")
 
 CORS(app)
 
+def set_up():
+    stream = open('config.yml', 'r')
+    config = yaml.load(stream).copy()
+    def read_coin_data(name):
+        fname = "_data/coins/{}.yml".format(name)
+        stream = open(fname, 'r')
+        return yaml.load(stream).copy()
 
-stream = open('config.yml', 'r')
-config = yaml.load(stream).copy()
-print(config)
-def read_coin_data(name):
-    fname = "_data/coins/{}.yml".format(name)
-    stream = open(fname, 'r')
-    return yaml.load(stream).copy()
+    all_data = []
+    for name in config:
+        if config[name]:
+            all_data.append(read_coin_data(name))
+    return all_data 
 
-for d in config:
-    print(read_coin_data(d))
+all_coin_data = set_up()
+
 # data = main() if not os.environ.get('DEV') else read_json_file() 
 
-# @app.route('/data', methods=['Get'])
-# def home():
-
-#     return  json.dumps(data)
+@app.route('/data', methods=['Get'])
+def home():
+    return  json.dumps(data)
 
 
 @app.route('/', methods=['Get'])
 
 def index():
     '''Return index.html for all non-api routes'''
-    return render_template( 'index.html') 
+    # return render_template( 'index.html') 
+    return render_template( 'index.html', all_coin_data = json.dumps(all_coin_data)) 
 
  
 # def cron():

@@ -37,6 +37,7 @@ class CoinScrapper(ReusableMethods):
                 else:
                     assert(0 < wealth_distribution <=100)
                     new_data_for_yml['wealth_distribution'] = str( round(wealth_distribution,2 ) ) + '%'
+                new_data_for_yml['wealth_distribution_la'] = time.strftime('%l:%M%p %Z on %b %d, %Y') 
             except Exception as e: 
                 err = 'ERROR FINDING {} WEALTH DISTRIBUTION'.format(self.name) + ': ' + str(e)
                 
@@ -51,6 +52,7 @@ class CoinScrapper(ReusableMethods):
                 else:
                     assert(public_node_count >= 1)
                     new_data_for_yml['public_nodes'] = public_node_count
+                new_data_for_yml['public_node_count_la'] = time.strftime('%l:%M%p %Z on %b %d, %Y') 
             except Exception as e: 
                 err = 'ERROR FINDING {} PUBLIC NODE COUNT'.format(self.name) + ': ' + str(e)
                 self.log(err)
@@ -62,6 +64,7 @@ class CoinScrapper(ReusableMethods):
                 else:
                     assert(client_codebases >= 1)
                     new_data_for_yml['client_codebases'] = client_codebases
+                new_data_for_yml['client_codebases_la'] = time.strftime('%l:%M%p %Z on %b %d, %Y') 
             except Exception as e: 
                 err = 'ERROR FINDING {} CLIENT CODEBASES'.format(self.name) + ': ' + str(e)
                 self.log(err)
@@ -74,6 +77,7 @@ class CoinScrapper(ReusableMethods):
                 else:
                     assert(consensus_distribution >= 1)
                     new_data_for_yml['consensus_distribution'] = consensus_distribution
+                new_data_for_yml['consensus_distribution_la'] = time.strftime('%l:%M%p %Z on %b %d, %Y') 
             except Exception as e: 
                 err = 'ERROR FINDING {} CONSENSUS DISTRIBUTION'.format(self.name) + ': ' + str(e)
                 self.log(err)
@@ -85,13 +89,22 @@ class CoinScrapper(ReusableMethods):
         '''
         overwrites new values in new_data dictionary to yml file
         '''
-        fname = "_data/coins/{}.yml".format(self.name.replace(' ', '-'))
+        fname = "_data/coins/{}.yml".format(self.name)
         stream = open(fname, 'r')
         
         data = yaml.load(stream).copy()
         data.update(new_data)
         with open(fname, 'w') as yaml_file:
             yaml_file.write( yaml.dump(data, default_flow_style=False))
+            
+    def read_from_yaml(self):
+        '''
+        overwrites new values in new_data dictionary to yml file
+        '''
+        fname = "_data/coins/{}.yml".format(self.name)
+        stream = open(fname, 'r')
+        data = yaml.load(stream).copy()
+        return data
 
 
     # Methods below are 'helper methods' for crawling and sanitizing data
