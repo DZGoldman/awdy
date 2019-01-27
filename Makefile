@@ -1,3 +1,3 @@
 run:
-	python _data/scripts/main.py
+	python3 _data/scripts/main.py
 	

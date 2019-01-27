@@ -8,7 +8,7 @@ class BitcoinCash(CoinScrapper):
 
     def get_public_nodes(self):
         self.get_page("https://cash.coin.dance/nodes");
-        node_count_container = self.find_element("[title].nodeTitle > strong")
+        node_count_container = self.find_element("h3 > div[data-hasqtip] > strong")
         public_nodes_source = node_count_container.text
         return int(public_nodes_source)
         

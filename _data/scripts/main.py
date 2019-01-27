@@ -47,7 +47,6 @@ for coin in [
     Nem,
     Vertcoin,
     Myriad,
-    Nano,
     Neo,
     Tezos,
     Decred,
@@ -55,13 +54,17 @@ for coin in [
     
     
     # Incomplete:
-    # Ardor,
-    # Stellar,
+    # Want:
     # ZCash,
-    # Zencash,
     # Monero,
     # Dogecoin
     # EthereumClassic,
+    # Stellar,
+
+
+    # Nano,
+    # Ardor,
+    # Zencash,
     # Qtum,
     ]:
     coin(driver).main(

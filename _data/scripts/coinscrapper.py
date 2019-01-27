@@ -1,15 +1,20 @@
-import yaml, re, time
+import yaml, re, time, os, datetime
 from selenium.webdriver.support.ui import WebDriverWait
 import pandas as pd
 import numpy as np
 from reusable_methods import ReusableMethods
+
+cwd = os.getcwd()
+
+with open(cwd + '/log.log', 'a') as f:
+    f.write('\n\nstart!\n')
 
 class CoinScrapper(ReusableMethods):
     '''
     All coins will inherit from this class
     '''
     # constants:
-    default_page_load_wait_time = 1
+    default_page_load_wait_time = 3
 
     def main(self, options = {}):
         options = {
@@ -33,8 +38,10 @@ class CoinScrapper(ReusableMethods):
                     assert(0 < wealth_distribution <=100)
                     new_data_for_yml['wealth_distribution'] = str( round(wealth_distribution,2 ) ) + '%'
             except Exception as e: 
-                print('ERROR FINDING {} WEALTH DISTRIBUTION'.format(self.name))
-                print(e)
+                err = 'ERROR FINDING {} WEALTH DISTRIBUTION'.format(self.name) + ': ' + str(e)
+                
+                self.log(err)
+                # logger.error(err)
 
         if options['public_node_count']:
             try:
@@ -45,8 +52,8 @@ class CoinScrapper(ReusableMethods):
                     assert(public_node_count >= 1)
                     new_data_for_yml['public_nodes'] = public_node_count
             except Exception as e: 
-                print('ERROR FINDING {} PUBLIC NODE COUNT'.format(self.name))
-                print(e)
+                err = 'ERROR FINDING {} PUBLIC NODE COUNT'.format(self.name) + ': ' + str(e)
+                self.log(err)
         if options['client_codebases']:
             try:
                 client_codebases  = self.get_client_codebases()
@@ -56,8 +63,8 @@ class CoinScrapper(ReusableMethods):
                     assert(client_codebases >= 1)
                     new_data_for_yml['client_codebases'] = client_codebases
             except Exception as e: 
-                print('ERROR FINDING {} CLIENT CODEBASES'.format(self.name))
-                print(e)
+                err = 'ERROR FINDING {} CLIENT CODEBASES'.format(self.name) + ': ' + str(e)
+                self.log(err)
         
         if options['consensus_distribution']:
             try:
@@ -68,8 +75,8 @@ class CoinScrapper(ReusableMethods):
                     assert(consensus_distribution >= 1)
                     new_data_for_yml['consensus_distribution'] = consensus_distribution
             except Exception as e: 
-                print('ERROR FINDING {} CONSENSUS DISTRIBUTION'.format(self.name))
-                print(e)
+                err = 'ERROR FINDING {} CONSENSUS DISTRIBUTION'.format(self.name) + ': ' + str(e)
+                self.log(err)
 
         print('new data for yml for {}:'.format(self.name),new_data_for_yml)
         self.write_to_yml(new_data_for_yml)
@@ -144,3 +151,15 @@ class CoinScrapper(ReusableMethods):
         converts selenium table object to dataframe; open to transform data type of columns
         '''
         return pd.read_html(table.get_attribute("outerHTML"), header=0, converters=converters)[0]
+
+    def log(self, message):
+        print(message)
+        message = str(datetime.datetime.now()) +': ' + message
+        with open(cwd + '/log.log', 'a') as f:
+            f.write(message + '\n')
+# cwd = os.getcwd()
+# print(cwd)
+# logging.basicConfig(filename=cwd + '/errorlog.log', level=logging.DEBUG, 
+#                     format='%(asctime)s %(levelname)s %(name)s %(message)s')
+# logger=logging.getLogger(__name__)
+
