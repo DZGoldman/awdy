@@ -36,7 +36,7 @@ class CoinScrapper(ReusableMethods):
                     new_data_for_yml['wealth_distribution'] = ''
                 else:
                     assert(0 < wealth_distribution <=100)
-                    new_data_for_yml['wealth_distribution'] = str( round(wealth_distribution,2 ) ) + '%'
+                    new_data_for_yml['wealth_distribution'] = round(wealth_distribution,2 )
                 new_data_for_yml['wealth_distribution_la'] = time.strftime('%l:%M%p %Z on %b %d, %Y') 
             except Exception as e: 
                 err = 'ERROR FINDING {} WEALTH DISTRIBUTION'.format(self.name) + ': ' + str(e)
