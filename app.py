@@ -2,7 +2,6 @@ from flask import Flask, render_template
 from flask_cors import CORS
 
 import os, json, time
-from coin_data import main, read_json_file
 from threading import Thread
 
 app = Flask(__name__, static_folder="./build/static", template_folder="./build")
