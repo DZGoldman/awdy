@@ -7,7 +7,8 @@
     "react-dom": "^16.7.0",
     "react-bootstrap": "^0.32.4",
     "react-favicon": "0.0.14",
-    "react-flip-move": "^3.0.3"
+    "react-flip-move": "^3.0.3",
+    "axios": "^0.18.0"
   },
   "devDependencies": {
     "react-scripts": "2.1.0"

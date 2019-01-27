@@ -30,7 +30,7 @@ all_coin_data = set_up()
 
 @app.route('/data', methods=['Get'])
 def home():
-    return  json.dumps(data)
+    return  json.dumps(all_coin_data)
 
 
 @app.route('/', methods=['Get'])
