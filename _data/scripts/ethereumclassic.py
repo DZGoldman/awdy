@@ -3,7 +3,7 @@ import pdb
 class EthereumClassic(CoinScrapper):
 
     def __init__ (self, driver):
-        self.name = 'ethereum classic'
+        self.name = 'ethereumclassic'
         self.driver = driver
 
     def get_public_nodes(self):

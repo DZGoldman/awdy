@@ -3,7 +3,7 @@ from coinscrapper import CoinScrapper
 class BitcoinCash(CoinScrapper):
 
     def __init__ (self, driver):
-        self.name = 'bitcoin cash'
+        self.name = 'bitcoincash'
         self.driver = driver
 
     def get_public_nodes(self):

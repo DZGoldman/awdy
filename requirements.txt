@@ -5,3 +5,4 @@ requests
 IPython
 flask_cors
 flask
+yaml

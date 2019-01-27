@@ -3,13 +3,24 @@ from flask_cors import CORS
 
 import os, json, time
 from threading import Thread
+import yaml
+
 
 app = Flask(__name__, static_folder="./build/static", template_folder="./build")
 
 CORS(app)
 
- 
 
+stream = open('config.yml', 'r')
+config = yaml.load(stream).copy()
+print(config)
+def read_coin_data(name):
+    fname = "_data/coins/{}.yml".format(name)
+    stream = open(fname, 'r')
+    return yaml.load(stream).copy()
+
+for d in config:
+    print(read_coin_data(d))
 # data = main() if not os.environ.get('DEV') else read_json_file() 
 
 # @app.route('/data', methods=['Get'])
