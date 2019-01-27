@@ -1,14 +1,15 @@
-name: Decred
-symbol: DCR
-url: https://www.decred.org/
-consensus: PoW/PoS
-incentivized: Y
-consensus_distribution: 2
-consensus_distribution_source: https://dcrstats.com/pow
-wealth_distribution: 39%
-wealth_distribution_source: https://www.dcr.observer/
 client_codebases: 1
 client_codebases_source: https://dcrstats.com/map
-public_nodes: 259
+consensus: PoW/PoS
+consensus_distribution: 2
+consensus_distribution_source: https://dcrstats.com/pow
+incentivized: Y
+name: Decred
+notes: Consensus distribution is calculated based on PoW mining alone, as blocks are
+  produced by PoW miners. PoS stakers only provide finality through a vote.
+public_nodes: 229
 public_nodes_source: https://dcrstats.com/map
-notes: Consensus distribution is calculated based on PoW mining alone, as blocks are produced by PoW miners. PoS stakers only provide finality through a vote. 
+symbol: DCR
+url: https://www.decred.org/
+wealth_distribution: 38.15%
+wealth_distribution_source: https://www.dcr.observer/

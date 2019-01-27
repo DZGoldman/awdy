@@ -1,14 +1,16 @@
-name: Qtum
-symbol: QTUM
-url: https://qtum.org
-consensus: PoS
-incentivized: Y
-consensus_distribution: 45
-consensus_distribution_source: https://explorer.qtum.org
-wealth_distribution: 73.102%
-wealth_distribution_source: https://explorer.qtum.org/rich-list
 client_codebases: 1
 client_codebases_source: https://github.com/qtumproject/qtum
+consensus: PoS
+consensus_distribution: 45
+consensus_distribution_source: https://explorer.qtum.org
+incentivized: Y
+name: Qtum
+notes: Qtum uses a HD wallet natively so it is difficult to determine actual consensus/wealth
+  distribution. However the algorithm guarantees that every UTXO that has won a block
+  will be locked for 500 blocks.
 public_nodes: 6787
 public_nodes_source: https://qtum.org/en/nodemap
-notes: Qtum uses a HD wallet natively so it is difficult to determine actual consensus/wealth distribution. However the algorithm guarantees that every UTXO that has won a block will be locked for 500 blocks.
+symbol: QTUM
+url: https://qtum.org
+wealth_distribution: 77.53%
+wealth_distribution_source: https://explorer.qtum.org/rich-list

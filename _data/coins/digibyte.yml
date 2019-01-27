@@ -1,14 +1,16 @@
-name: DigiByte
-symbol: DGB
-url: https://digibyte.io
-consensus: PoW
-incentivized: Y
-consensus_distribution: 3
-consensus_distribution_source: https://chainz.cryptoid.info/dgb/#!extraction
-wealth_distribution: 46.66%
-wealth_distribution_source: https://chainz.cryptoid.info/dgb/#!rich
 client_codebases: 1
 client_codebases_source: https://chainz.cryptoid.info/dgb/#!network
-public_nodes: 287
+consensus: PoW
+consensus_distribution: 9
+consensus_distribution_source: https://chainz.cryptoid.info/dgb/#!extraction
+incentivized: Y
+name: DigiByte
+notes: Because DigiByte is MultiAlgo, to perform a 51% attack, it would require 93%
+  of the primary attack algorithm and 51% of all other remaining, meaning the Consensus
+  Distribution is skewed
+public_nodes: 206
 public_nodes_source: https://chainz.cryptoid.info/dgb/#!network
-notes: Because DigiByte is MultiAlgo, to perform a 51% attack, it would require 93% of the primary attack algorithm and 51% of all other remaining, meaning the Consensus Distribution is skewed
+symbol: DGB
+url: https://digibyte.io
+wealth_distribution: 47.69%
+wealth_distribution_source: https://chainz.cryptoid.info/dgb/#!rich

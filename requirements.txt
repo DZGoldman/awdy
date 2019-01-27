@@ -3,3 +3,5 @@ numpy
 selenium
 requests
 IPython
+flask_cors
+flask

@@ -1,13 +1,13 @@
+client_codebases: 1
+client_codebases_source: https://nodeexplorer.com/
+consensus: POI
+consensus_distribution: ''
+consensus_distribution_source: null
+incentivized: Y
 name: NEM
+public_nodes: 442
+public_nodes_source: https://nodeexplorer.com/
 symbol: XEM
 url: https://nem.io/
-consensus: POI
-incentivized: Y
-consensus_distribution:
-consensus_distribution_source:
-wealth_distribution: 53%
+wealth_distribution: 62.1%
 wealth_distribution_source: https://nemnodes.org/richlist/
-client_codebases: 1 
-client_codebases_source: https://nodeexplorer.com/
-public_nodes: 530
-public_nodes_source: https://nodeexplorer.com/

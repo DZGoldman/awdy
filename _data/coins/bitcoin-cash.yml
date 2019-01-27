@@ -1,13 +1,13 @@
-name: Bitcoin Cash
-symbol: BCH
-url: https://www.bitcoincash.org/
-consensus: PoW
-incentivized: Y
-consensus_distribution: 3
-consensus_distribution_source: https://cash.coin.dance/blocks/today
-wealth_distribution: 24.12%
-wealth_distribution_source: https://bitinfocharts.com/top-100-richest-bitcoin%20cash-addresses.html
 client_codebases: 2
 client_codebases_source: https://cash.coin.dance/nodes#allNodes
-public_nodes: 2124
+consensus: PoW
+consensus_distribution: 3
+consensus_distribution_source: https://cash.coin.dance/blocks/today
+incentivized: Y
+name: Bitcoin Cash
+public_nodes: 1685
 public_nodes_source: https://cash.coin.dance/nodes
+symbol: BCH
+url: https://www.bitcoincash.org/
+wealth_distribution: 25.1%
+wealth_distribution_source: https://bitinfocharts.com/top-100-richest-bitcoin%20cash-addresses.html

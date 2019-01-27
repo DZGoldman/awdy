@@ -53,3 +53,6 @@ Vertcoin: used chainz for all
 
         # print('BCH % money held by 100 accounts:', wealth_distribution)
         # return wealth_distribution
+
+
+        https://gist.github.com/ziadoz/3e8ab7e944d02fe872c3454d17af31a5

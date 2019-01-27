@@ -1,14 +1,15 @@
-name: Cardano
-symbol: ADA
-url: https://www.cardano.org/en/home/
+client_codebases: 1
+client_codebases_source: https://cardanodocs.com/timeline/bootstrap/
 consensus: PoS
-incentivized: N
 consensus_distribution: 1
 consensus_distribution_source: https://cardanodocs.com/timeline/bootstrap/
-wealth_distribution: 40%
-wealth_distribution_source: https://adatracker.com/richest
-client_codebases: 1 
-client_codebases_source: https://cardanodocs.com/timeline/bootstrap/
-public_nodes: 1 
+incentivized: N
+name: Cardano
+notes: During the "Boostrap" era, Cardano runs all the validating nodes themselves.
+  Hence 1 for everything.
+public_nodes: 1
 public_nodes_source: https://cardanodocs.com/timeline/bootstrap/
-notes: During the "Boostrap" era, Cardano runs all the validating nodes themselves. Hence 1 for everything.
+symbol: ADA
+url: https://www.cardano.org/en/home/
+wealth_distribution: 52.11%
+wealth_distribution_source: https://adatracker.com/richest

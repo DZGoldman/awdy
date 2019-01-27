@@ -1,13 +1,13 @@
-name: Siacoin
-symbol: SC
-url: https://sia.tech/
-consensus: PoW
-incentivized: Y
-consensus_distribution: 2
-consensus_distribution_source: https://siastats.info/mining_pools
-wealth_distribution:
-wealth_distribution_source:
 client_codebases: 1
 client_codebases_source: https://siastats.info/hosts_map
-public_nodes: 724
+consensus: PoW
+consensus_distribution: 1
+consensus_distribution_source: https://siastats.info/mining_pools
+incentivized: Y
+name: Siacoin
+public_nodes: 317
 public_nodes_source: https://siastats.info
+symbol: SC
+url: https://sia.tech/
+wealth_distribution: ''
+wealth_distribution_source: null

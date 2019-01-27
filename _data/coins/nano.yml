@@ -1,14 +1,15 @@
+client_codebases: 1
+client_codebases_source: https://nanonode.ninja/statistics/versions
+consensus: DPoS
+consensus_distribution: 4
+consensus_distribution_source: https://nanonode.ninja/active
+incentivized: N
 name: Nano
+notes: The "Official Representatives" are run by the developers, hence can be collapsed
+  to represent a single entity
+public_nodes: 425
+public_nodes_source: https://nano.meltingice.net/status
 symbol: NANO
 url: https://nano.org
-consensus: DPoS
-incentivized: N
-consensus_distribution: 3
-consensus_distribution_source: https://nanonode.ninja/active
 wealth_distribution: 62%
 wealth_distribution_source: https://nano.meltingice.net/explorer/top_accounts
-client_codebases: 1 
-client_codebases_source: https://nanonode.ninja/statistics/versions
-public_nodes: 548
-public_nodes_source: https://nano.meltingice.net/status
-notes: The "Official Representatives" are run by the developers, hence can be collapsed to represent a single entity
