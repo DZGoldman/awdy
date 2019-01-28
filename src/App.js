@@ -5,6 +5,7 @@ import FlipMove from "react-flip-move";
 import { Table } from "react-bootstrap";
 import Favicon from "react-favicon";
 import axios from "axios";
+import ReactTooltip from 'react-tooltip'
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class App extends Component {
     this.state = {
       coinData: window.allCoinData,
       decentralizedClicks: 0,
-      columnHeaders:    ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "wealth_distribution", "rank", "consensus", "incentivized"],
+      columnHeaders:    ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "wealth_distribution", "rank", "incentivized"],
       sortColumn: "name",
       sortAscending: false
     };
@@ -82,11 +83,22 @@ class App extends Component {
     })} </span>
     return 
   }
+
+renderWithInfo = (coin,colName)=>{
+  const cellId =    `${coin}-${colName}`
+  const lastUpdatedMessage = `Last Updated: ${coin[colName+'_la']}`
+  //         <p data-tip='this is a tip' data-for='test'>tooltip test</p>
+  return <td data-tip={lastUpdatedMessage} data-for={cellId} > <a target="_blank" href={coin[colName+'_source']}>{coin[colName]}</a>
+            <ReactTooltip place="right" id={cellId}></ReactTooltip>
+
+  </td>
+}
   render() {
     const { coinData, columnHeaders } = this.state;
 
     return (
       <div className="App">
+
         <Favicon url="https://d30y9cdsu7xlg0.cloudfront.net/png/58197-200.png" />
 
         <nav id="navbar" className="navbar navbar-dark">
@@ -106,7 +118,7 @@ class App extends Component {
                   className="navbar-brand"
                   href="https://github.com/DZGoldman/awdy"
                 >
-                  <i className="fab fa-fw fa-github" /> Contribute on Github
+                  <i className="fab fa-fw fa-github" /> Contribute on  Github
                 </a>
               </div>
             </div>
@@ -142,16 +154,15 @@ class App extends Component {
             {coinData && coinData.length > 0 && coinData.map((coin, index) => {
               return (
                 <tr key={coin.symbol}>
-                {/* columnHeaders:    ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "rank"], */}
+                {/* columnHeaders:     ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "wealth_distribution", "rank", "consensus", "incentivized"], */}
 
                   <td><a target ='_blank' href={ coin.homepage}>{coin.name}</a></td>
                   <td>{coin.symbol}</td>
-                  <td>{coin.client_codebases}</td>
+                  {this.renderWithInfo(coin, "client_codebases")}
                   <td>{coin.consensus}</td>
                   <td>{coin.consensus_distribution}</td>
                   <td>{coin.wealth_distribution}</td>
                   <td>{coin.rank}</td>
-                  <td>{coin.consensus}</td>
                   <td>{coin.incentivized}</td>
                  
           
@@ -164,6 +175,8 @@ class App extends Component {
         </Table>
 
         <footer>
+        <p data-tip='this is a tip' data-for='test'>tooltip test</p>
+        <ReactTooltip id='test'>hi</ReactTooltip>
           <div className="footer" id="footer">
             <div className="footer-bottom">
               <div className="footer-row">

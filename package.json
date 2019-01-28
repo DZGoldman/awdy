@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0",
     "react-bootstrap": "^0.32.4",
+    "react-dom": "^16.7.0",
     "react-favicon": "0.0.14",
     "react-flip-move": "^3.0.3",
-    "axios": "^0.18.0"
+    "react-tooltip": "^3.9.2"
   },
   "devDependencies": {
     "react-scripts": "2.1.0"
