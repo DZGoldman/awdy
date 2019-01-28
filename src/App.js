@@ -12,13 +12,15 @@ class App extends Component {
     this.state = {
       coinData: window.allCoinData,
       decentralizedClicks: 0,
-      columnHeaders:    ["name", "symbol", "balance", "dominance", '24_hour_volume', "vol_dominance", "type", "auditor", "holders", "percents"],
-
+      columnHeaders:    ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "wealth_distribution", "rank", "consensus", "incentivized"],
+      sortColumn: "name",
+      sortAscending: false
     };
     this.dataUrl = "/data";
     if (process.env.NODE_ENV == "development") {
       this.dataUrl = "http://0.0.0.0:33507" + this.dataUrl;
     }
+    window.r = this
   }
 
   decentClick = ()=>{
@@ -29,14 +31,43 @@ class App extends Component {
       this.setState({decentralizedClicks: 0})
     }
   }
+  sortBy = (sortColumn) =>{
+    if (sortColumn == this.state.sortColumn) {
+      return this.flipSortOrder()
+    }
+    const coinData = [...this.state.coinData];
+    
+    if (this.state.sortAscending) {
+      coinData.sort((a, b) => a[sortColumn] >= b[sortColumn] ? 1 : -1);
+
+    } else {
+      coinData.sort((a, b) => b[sortColumn] >= a[sortColumn] ? 1 : -1);
+    }
+    this.setState({
+      coinData,
+      sortColumn
+    });
+    // this.setState({sortColumn})
+  }
+  flipSortOrder = () => {
+    const { sortAscending, coinData } = this.state;
+    const newCoinData = [...coinData]
+    this.setState({
+      sortAscending: !this.state.sortAscending,
+      coinData: newCoinData.reverse()
+    });
+  };
+
   componentDidMount = () => {
     if (!window.allCoinData) {
       axios.get(this.dataUrl).then(d => {
         this.setState({
-          coinData: d
+          coinData: d.data
+        },()=>{
+          this.sortBy('symbol')
         });
       });
-
+      // 
       // window.setTimeout(()=>{
 
       // }, 2000)
@@ -47,13 +78,12 @@ class App extends Component {
     const decentralizedClicks = this.state.decentralizedClicks
     return <span> {"decentralized".split("").map((l, index)=>{
       
-      return (index  >= 6 + decentralizedClicks) || (index  <= 6 - decentralizedClicks)   ? <span>{l}</span>:  <span>&nbsp;</span>
+      return (index  >= 6 + decentralizedClicks) || (index  <= 6 - decentralizedClicks)   ? <span key={index}>{l}</span>:  <span  key={index}>&nbsp;</span>
     })} </span>
     return 
   }
   render() {
-    const { coinData } = this.state;
-    console.log(this.dataUrl);
+    const { coinData, columnHeaders } = this.state;
 
     return (
       <div className="App">
@@ -85,11 +115,50 @@ class App extends Component {
 
         <Table className="table table-striped">
           <thead>
-            <tr id="header-row" />
+          <tr   id='header-row'>
+              {columnHeaders.map( (h, i) => {
+                const isCurrentColumn =     h == this.state.sortColumn;
+                return (
+                  <th
+                    key={h}
+                    onClick={() => this.sortBy(h)}
+                    className={
+                      isCurrentColumn
+                        ? "emphasized-col"
+                        : "deemphasized-col"
+                    }
+                  >
+                    <span>
+                    {this.state.columnHeaders[i]}
+                    {isCurrentColumn && (!this.state.sortAscending ? <span className='arrow'>&#x2191;</span> :  <span className='arrow'>&#x2193;</span>)}</span>
+             
+                  </th>
+                );
+              })}
+            </tr>
           </thead>
           <tbody>
             {/* <FlipMove> */}
+            {coinData && coinData.length > 0 && coinData.map((coin, index) => {
+              return (
+                <tr key={coin.symbol}>
+                {/* columnHeaders:    ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "rank"], */}
 
+                  <td><a target ='_blank' href={ coin.homepage}>{coin.name}</a></td>
+                  <td>{coin.symbol}</td>
+                  <td>{coin.client_codebases}</td>
+                  <td>{coin.consensus}</td>
+                  <td>{coin.consensus_distribution}</td>
+                  <td>{coin.wealth_distribution}</td>
+                  <td>{coin.rank}</td>
+                  <td>{coin.consensus}</td>
+                  <td>{coin.incentivized}</td>
+                 
+          
+                  
+                </tr>
+              );
+            })}
             {/* </FlipMove> */}
           </tbody>
         </Table>
