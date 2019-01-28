@@ -34,7 +34,7 @@ options.add_argument("window-size=1200x600")
 driver = webdriver.Chrome(chrome_options=options) 
 
 start = time.time()
-for coin in [
+coins = [
     Bitcoin, 
     Ethereum, 
     Ripple,
@@ -66,11 +66,12 @@ for coin in [
     # Ardor,
     # Zencash,
     # Qtum,
-    ]:
+    ]
+for coin in coins:
     coin(driver).main(
         {
                 'wealth_distribution': True,
-                'public_node_count' : True,
+                'public_nodes' : True,
                 'consensus_distribution': True,
                 'client_codebases': True
             }
@@ -79,3 +80,11 @@ for coin in [
 print('Scrape completed in ', time.time() - start)
 
 driver.quit()
+
+    # def get_all_coins (self):
+    #     res = requests.get("https://api.coinmarketcap.com/v1/ticker/" params={
+    #         'limit':300
+    #     })
+    #     return res.json()
+    # def map_symbols_to_data(self, data):
+    #     return {coin['symbol'].lower(): coin for coin in data}

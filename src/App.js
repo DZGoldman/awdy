@@ -13,9 +13,20 @@ class App extends Component {
     this.state = {
       coinData: window.allCoinData,
       decentralizedClicks: 0,
-      columnHeaders:    ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "wealth_distribution", "rank", "incentivized"],
+      columnHeaders:    ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "public_nodes", "wealth_distribution", "rank", "incentivized"],
+      readable: {
+        "name": "Name",
+        "symbol": "Symbol",
+        "client_codebases": "# of client codebases that account for > 90% of nodes",
+        "consensus": "Consensus",
+        'consensus_distribution': "# of entities in control of >50% of voting/mining power",
+        "public_nodes": "# of public nodes",
+        "wealth_distribution": "% of money supply held by top 100 accounts",
+        "rank": "Rank",
+        "incentivized": "Incentivized?"
+      },
       sortColumn: "name",
-      sortAscending: false
+      sortAscending: true
     };
     this.dataUrl = "/data";
     if (process.env.NODE_ENV == "development") {
@@ -84,17 +95,20 @@ class App extends Component {
     return 
   }
 
-renderWithInfo = (coin,colName)=>{
+renderWithInfo = (coin,colName, add="")=>{
   const cellId =    `${coin}-${colName}`
+  console.log(colName + "_la")
   const lastUpdatedMessage = `Last Updated: ${coin[colName+'_la']}`
   //         <p data-tip='this is a tip' data-for='test'>tooltip test</p>
-  return <td data-tip={lastUpdatedMessage} data-for={cellId} > <a target="_blank" href={coin[colName+'_source']}>{coin[colName]}</a>
-            <ReactTooltip place="right" id={cellId}></ReactTooltip>
-
-  </td>
+  return <td data-tip={lastUpdatedMessage} data-for={cellId} > <a target="_blank" href={coin[colName+'_source']}> { this.handleNull(coin[colName]) +  add}</a>
+            <ReactTooltip type='info' place="right" id={cellId}></ReactTooltip>
+            </td>
+}
+handleNull = (dataPoint)=>{
+  return dataPoint == "" ? "?" : dataPoint
 }
   render() {
-    const { coinData, columnHeaders } = this.state;
+    const { coinData, columnHeaders, readable} = this.state;
 
     return (
       <div className="App">
@@ -104,7 +118,7 @@ renderWithInfo = (coin,colName)=>{
         <nav id="navbar" className="navbar navbar-dark">
           <div id="nav-items-container">
             <div className="navbar-brand" onClick={this.decentClick}>
-              <i className="fas fa-balance-scale" /> are we{" "}
+              <i className="fab fa-connectdevelop" /> are we{" "}
               <span id="decentralized">{this.renderDecentralized()} yet? </span>
             </div>
             <div id="header-right-wrapper">
@@ -141,7 +155,7 @@ renderWithInfo = (coin,colName)=>{
                     }
                   >
                     <span>
-                    {this.state.columnHeaders[i]}
+                    {readable[columnHeaders[i]]}
                     {isCurrentColumn && (!this.state.sortAscending ? <span className='arrow'>&#x2191;</span> :  <span className='arrow'>&#x2193;</span>)}</span>
              
                   </th>
@@ -154,14 +168,15 @@ renderWithInfo = (coin,colName)=>{
             {coinData && coinData.length > 0 && coinData.map((coin, index) => {
               return (
                 <tr key={coin.symbol}>
-                {/* columnHeaders:     ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "wealth_distribution", "rank", "consensus", "incentivized"], */}
+      {/* columnHeaders:    ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "public_nodes", "wealth_distribution", "rank", "incentivized"], */}
 
                   <td><a target ='_blank' href={ coin.homepage}>{coin.name}</a></td>
                   <td>{coin.symbol}</td>
                   {this.renderWithInfo(coin, "client_codebases")}
                   <td>{coin.consensus}</td>
-                  <td>{coin.consensus_distribution}</td>
-                  <td>{coin.wealth_distribution}</td>
+                  {this.renderWithInfo(coin, "consensus_distribution")}
+                  {this.renderWithInfo(coin, "public_nodes")}
+                  {this.renderWithInfo(coin, "wealth_distribution", "%")}
                   <td>{coin.rank}</td>
                   <td>{coin.incentivized}</td>
                  
@@ -175,8 +190,6 @@ renderWithInfo = (coin,colName)=>{
         </Table>
 
         <footer>
-        <p data-tip='this is a tip' data-for='test'>tooltip test</p>
-        <ReactTooltip id='test'>hi</ReactTooltip>
           <div className="footer" id="footer">
             <div className="footer-bottom">
               <div className="footer-row">
@@ -212,9 +225,9 @@ renderWithInfo = (coin,colName)=>{
               </div>
               <div id="inspired-by" className="footer-row">
                 {" "}
-                blatantly inspired by &nbsp;
-                <a target="_blank" href="https://arewedecentralizedyet.com/">
-                  arewedecentralizedyet.com
+                sister site: &nbsp;
+                <a target="_blank" href="https://arewestableyet.com/">
+                arewestableyet.com
                 </a>
               </div>
 
@@ -226,6 +239,7 @@ renderWithInfo = (coin,colName)=>{
                     Help promote wealth decentralization by giving me yours:
                   </p>{" "}
                 </div>
+    
                 <div className="tip">
                   BTC: <b>33STRJgjFgG2r8vEy9xLKN5dYfw26tSmVi</b>
                 </div>

@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import pandas as pd
 import numpy as np
 from reusable_methods import ReusableMethods
+import requests
 
 cwd = os.getcwd()
 
@@ -20,7 +21,7 @@ class CoinScrapper(ReusableMethods):
         options = {
             **{
                 'wealth_distribution': True,
-                'public_node_count' : True,
+                'public_nodes' : True,
                 'consensus_distribution': True,
                 'client_codebases': True
             }, **options
@@ -44,15 +45,15 @@ class CoinScrapper(ReusableMethods):
                 self.log(err)
                 # logger.error(err)
 
-        if options['public_node_count']:
+        if options['public_nodes']:
             try:
                 public_node_count  = self.get_public_nodes()
                 if public_node_count == 'n/a':
                     new_data_for_yml['public_nodes'] = ''
                 else:
                     assert(public_node_count >= 1)
-                    new_data_for_yml['public_node_count'] = public_node_count
-                new_data_for_yml['public_node_count_la'] = time.strftime('%l:%M%p %Z on %b %d, %Y') 
+                    new_data_for_yml['public_nodes'] = public_node_count
+                new_data_for_yml['public_nodes_la'] = time.strftime('%l:%M%p %Z on %b %d, %Y') 
             except Exception as e: 
                 err = 'ERROR FINDING {} PUBLIC NODE COUNT'.format(self.name) + ': ' + str(e)
                 self.log(err)

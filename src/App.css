@@ -25,6 +25,8 @@ td.right-al{
  justify-content: space-between;
  padding-left: 15px;
  padding-right: 15px;
+ height: 100px;
+ align-items: center;
 }
 
 #header-right-wrapper{
@@ -39,15 +41,15 @@ thead{
 
 #navbar{
   margin: 0;
-  background-color: blue;
+  background-color: rgb(255, 115, 0);
+  color: black;
 
 }
 
  .navbar-brand, .navbar-brand:hover{
   text-decoration: none; 
-  color: rgb(230, 229, 229);
+  color: black;
   cursor: pointer;
-
   }
 
 .deemphasized-col{
@@ -55,7 +57,7 @@ thead{
 }
 
 .emphasized-col{
-  color: rgb(22, 154, 255);
+  color: rgb(255, 43, 53);
 }
 
 .emphasized-col, .deemphasized-col{
@@ -104,9 +106,10 @@ thead{
 
 #header-row{
 height: 60px;
+
 }
 #header-row > th {
-  font-size: 16px;
+  font-size: 12px;
 } 
 
 table{
@@ -167,4 +170,7 @@ table{
 #radio-container{
   padding-left: 10px;
   font-weight: bold;
+}
+a{
+  /* color:rgb(102, 66, 0) */
 }
