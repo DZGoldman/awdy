@@ -5,6 +5,8 @@ requests
 IPython
 flask_cors
 flask
+Flask
+Flask_cors
 yaml
 pyvirtualdisplay
 lxml

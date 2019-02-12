@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      coinData: window.allCoinData,
+      coinData: (typeof window.allCoinData == 'string') ? JSON.parse(window.allCoinData) :window.allCoinData ,
       decentralizedClicks: 0,
       columnHeaders:    ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "public_nodes", "wealth_distribution", "rank", "incentivized"],
       readable: {
