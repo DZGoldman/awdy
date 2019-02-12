@@ -1,13 +1,17 @@
 client_codebases: 1
+client_codebases_la: ' 8:43AM EST on Jan 29, 2019'
 client_codebases_source: https://siastats.info/hosts_map
 consensus: PoW
 consensus_distribution: 1
+consensus_distribution_la: ' 8:44AM EST on Jan 29, 2019'
 consensus_distribution_source: https://siastats.info/mining_pools
 incentivized: Y
 name: Siacoin
-public_nodes: 317
+public_nodes: 320
+public_nodes_la: ' 8:43AM EST on Jan 29, 2019'
 public_nodes_source: https://siastats.info
 symbol: SC
 url: https://sia.tech/
 wealth_distribution: ''
+wealth_distribution_la: ' 8:43AM EST on Jan 29, 2019'
 wealth_distribution_source: null

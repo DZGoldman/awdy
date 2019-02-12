@@ -1,13 +1,17 @@
 client_codebases: 1
+client_codebases_la: ' 8:42AM EST on Jan 29, 2019'
 client_codebases_source: https://nodeexplorer.com/
 consensus: POI
 consensus_distribution: ''
+consensus_distribution_la: ' 8:42AM EST on Jan 29, 2019'
 consensus_distribution_source: null
 incentivized: Y
 name: NEM
-public_nodes: 442
+public_nodes: 444
+public_nodes_la: ' 8:42AM EST on Jan 29, 2019'
 public_nodes_source: https://nodeexplorer.com/
 symbol: XEM
 url: https://nem.io/
-wealth_distribution: 62.1%
+wealth_distribution: 62
+wealth_distribution_la: ' 8:42AM EST on Jan 29, 2019'
 wealth_distribution_source: https://nemnodes.org/richlist/

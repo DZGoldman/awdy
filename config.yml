@@ -20,7 +20,6 @@ ethereumclassic: false
 monero: false
 nano: false
 qtum: false
-ripple: false
 stellar: false
 zcash: false
 zencash: false

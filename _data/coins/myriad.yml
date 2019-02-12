@@ -1,14 +1,18 @@
-client_codebases: 2
+client_codebases: 1
+client_codebases_la: ' 8:42AM EST on Jan 29, 2019'
 client_codebases_source: https://chainz.cryptoid.info/xmy/#!network
 consensus: PoW
-consensus_distribution: 3
+consensus_distribution: 1
+consensus_distribution_la: ' 8:42AM EST on Jan 29, 2019'
 consensus_distribution_source: https://chainz.cryptoid.info/xmy/#!extraction
 incentivized: Y
 name: Myriad
 notes: Myriad is a Multi-Algo consensus protocol.
-public_nodes: 108
+public_nodes: 124
+public_nodes_la: ' 8:42AM EST on Jan 29, 2019'
 public_nodes_source: https://chainz.cryptoid.info/xmy/#!network
 symbol: XMY
 url: http://myriadcoin.org/
-wealth_distribution: 65.49%
+wealth_distribution: 65
+wealth_distribution_la: ' 8:42AM EST on Jan 29, 2019'
 wealth_distribution_source: https://chainz.cryptoid.info/xmy/#!rich

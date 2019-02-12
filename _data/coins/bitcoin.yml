@@ -1,13 +1,17 @@
 client_codebases: 1
+client_codebases_la: 11:52AM EST on Feb 12, 2019
 client_codebases_source: https://coin.dance/nodes#allNodes
 consensus: PoW
-consensus_distribution: 4
+consensus_distribution: 3
+consensus_distribution_la: 11:52AM EST on Feb 12, 2019
 consensus_distribution_source: https://blockchain.info/pools
 incentivized: Y
 name: Bitcoin
-public_nodes: 10201
+public_nodes: 10411
+public_nodes_la: 11:52AM EST on Feb 12, 2019
 public_nodes_source: https://coin.dance/nodes
 symbol: BTC
 url: https://bitcoin.org
-wealth_distribution: 15.78%
+wealth_distribution: 16
+wealth_distribution_la: 11:52AM EST on Feb 12, 2019
 wealth_distribution_source: https://bitinfocharts.com/top-100-richest-bitcoin-addresses.html

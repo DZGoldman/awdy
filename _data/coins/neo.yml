@@ -1,15 +1,19 @@
-client_codebases: 2
+client_codebases: 1
+client_codebases_la: ' 8:42AM EST on Jan 29, 2019'
 client_codebases_source: http://monitor.cityofzion.io/
 consensus: DBFT
 consensus_distribution: 1
+consensus_distribution_la: ' 8:42AM EST on Jan 29, 2019'
 consensus_distribution_source: https://github.com/neo-project/neo/blob/master/neo/protocol.json#L6
 incentivized: N
 name: Neo
 notes: Neo currently owns all validating nodes used to run the network, hardcoded
   into the source
-public_nodes: 44
+public_nodes: 48
+public_nodes_la: ' 8:42AM EST on Jan 29, 2019'
 public_nodes_source: http://monitor.cityofzion.io/
 symbol: NEO
 url: https://neo.org/
-wealth_distribution: 70.73%
+wealth_distribution: 71
+wealth_distribution_la: ' 8:42AM EST on Jan 29, 2019'
 wealth_distribution_source: https://coranos.github.io/neo/charts/neo-account-data.html
