@@ -36,7 +36,10 @@ class ReusableMethods():
         return self.get_cumulative_grouping_count(values, .9)
 
     def bitinfo_wealth_dist(self):
-        self.get_page("https://bitinfocharts.com/" + self.name)
+        # hack, ugle:
+        name = "bitcoin cash" if self.name == 'bitcoincash' else self.name
+        self.get_page("https://bitinfocharts.com/" + name)
+
         table = self.find_element('.table')
         read_table = self.read_table(table)
         values = read_table.values

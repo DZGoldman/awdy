@@ -1,7 +1,6 @@
 bitcoin: true
 ethereum: true
 ripple: true
-ardor: true
 litecoin: true
 bitcoincash: false
 digibyte: true
@@ -15,6 +14,7 @@ neo: true
 tezos: true
 decred: true
 siacoin: true
+ardor: false
 dogecoin: false
 ethereumclassic: false
 monero: false

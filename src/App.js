@@ -100,7 +100,7 @@ renderWithInfo = (coin,colName, add="")=>{
   console.log(colName + "_la")
   const lastUpdatedMessage = `Last Updated: ${coin[colName+'_la']}`
   //         <p data-tip='this is a tip' data-for='test'>tooltip test</p>
-  return <td data-tip={lastUpdatedMessage} data-for={cellId} > <a target="_blank" href={coin[colName+'_source']}> { this.handleNull(coin[colName]) +  add}</a>
+  return <td> <a  data-tip={lastUpdatedMessage} data-for={cellId}target="_blank" href={coin[colName+'_source']}> { this.handleNull(coin[colName]) +  add}</a>
             <ReactTooltip type='info' place="right" id={cellId}></ReactTooltip>
             </td>
 }
