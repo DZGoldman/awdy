@@ -1,10 +1,6 @@
 from selenium import webdriver
 
-from pyvirtualdisplay import Display
-display = Display(visible=0, size=(800, 800))  
-display.start()
-
-import time
+import time, os
 from bitcoin import Bitcoin
 from ethereum import Ethereum 
 from ripple import Ripple
@@ -31,6 +27,12 @@ from vertcoin import Vertcoin
 from zencash import Zencash
 from myriad import Myriad
 
+
+# no macosx support for Xvfb, lazy develpment env solution:
+if os.environ.get('AWDY_PROD'):
+    from pyvirtualdisplay import Display
+    display = Display(visible=0, size=(800, 800))  
+    display.start()
 
 
 
