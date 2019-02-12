@@ -7,3 +7,4 @@ flask_cors
 flask
 yaml
 pyvirtualdisplay
+lxml
