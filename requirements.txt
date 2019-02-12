@@ -1,6 +1,6 @@
 pandas
 numpy
-selenium
+selenium==3.12.0
 requests
 IPython
 flask_cors
