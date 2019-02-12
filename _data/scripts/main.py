@@ -1,4 +1,9 @@
 from selenium import webdriver
+
+from pyvirtualdisplay import Display
+display = Display(visible=0, size=(800, 800))  
+display.start()
+
 import time
 from bitcoin import Bitcoin
 from ethereum import Ethereum 
@@ -26,9 +31,14 @@ from vertcoin import Vertcoin
 from zencash import Zencash
 from myriad import Myriad
 
+
+
+
 options = webdriver.ChromeOptions()
-options.add_argument("headless")
-options.add_argument("window-size=1200x600")
+options.add_argument('--headless')
+options.add_argument('--disable-gpu')
+options.add_argument("window-size=1024,768")
+options.add_argument("--no-sandbox")
 
 # Start driver with specified options
 driver = webdriver.Chrome(chrome_options=options) 

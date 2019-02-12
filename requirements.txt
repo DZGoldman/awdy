@@ -6,3 +6,4 @@ IPython
 flask_cors
 flask
 yaml
+pyvirtualdisplay
