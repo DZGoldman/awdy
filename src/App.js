@@ -26,13 +26,19 @@ class App extends Component {
         "incentivized": "Incentivized?"
       },
       sortColumn: "name",
-      sortAscending: true
+      sortAscending: true,
+      comingSoon:true
     };
     this.dataUrl = "/data";
     if (process.env.NODE_ENV == "development") {
       this.dataUrl = "http://0.0.0.0:33507" + this.dataUrl;
     }
     window.r = this
+  }
+  toggleComingSoon = () =>{
+    this.setState({
+      comingSoon: !this.state.comingSoon
+    })
   }
 
   decentClick = ()=>{
@@ -110,7 +116,7 @@ handleNull = (dataPoint)=>{
   render() {
     const { coinData, columnHeaders, readable} = this.state;
 
-    if(process.env.NODE_ENV == "development" && false){
+    if(process.env.NODE_ENV != "development" && this.state.comingSoon){
       return <div id='cswrap'>
               <Favicon url="https://d30y9cdsu7xlg0.cloudfront.net/png/58197-200.png" />
       returning soon...  <a href="https://twitter.com/DZack23/status/1084178115788718082">(under new management)</a>
