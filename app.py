@@ -5,7 +5,6 @@ import os, json, time
 from threading import Thread
 import yaml
 
-
 app = Flask(__name__, static_folder="./build/static", template_folder="./build")
 
 CORS(app)
@@ -26,7 +25,6 @@ def set_up():
 
 all_coin_data = set_up()
 
-# data = main() if not os.environ.get('DEV') else read_json_file() 
 
 @app.route('/data', methods=['Get'])
 def home():
@@ -41,13 +39,12 @@ def index():
     return render_template( 'index.html', all_coin_data = json.dumps(all_coin_data)) 
 
  
-# def cron():
-#     global data
-#     while True:
-#         time.sleep(60*30)
-#         data = main()
-# Thread(target = cron).start()
-
+def cron():
+    global all_coin_data
+    while True:
+        time.sleep(60*60*2)
+        all_coin_data = main()
+Thread(target = cron).start()
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 33507))
