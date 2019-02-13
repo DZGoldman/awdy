@@ -43,7 +43,7 @@ class CoinScrapper(ReusableMethods):
                 else:
                     assert(0 < wealth_distribution <=100)
                     new_data_for_yml['wealth_distribution'] = int(round(wealth_distribution))
-                new_data_for_yml['wealth_distribution_la'] = time.strftime('%l:%M%p %Z on %b %d, %Y') 
+                new_data_for_yml['wealth_distribution_la'] = current_time()
             except Exception as e: 
                 err = 'ERROR FINDING {} WEALTH DISTRIBUTION'.format(self.name) + ': ' + str(e)
                 
@@ -58,7 +58,7 @@ class CoinScrapper(ReusableMethods):
                 else:
                     assert(public_node_count >= 1)
                     new_data_for_yml['public_nodes'] = public_node_count
-                new_data_for_yml['public_nodes_la'] = time.strftime('%l:%M%p %Z on %b %d, %Y') 
+                new_data_for_yml['public_nodes_la'] = current_time()
             except Exception as e: 
                 err = 'ERROR FINDING {} PUBLIC NODE COUNT'.format(self.name) + ': ' + str(e)
                 self.log(err)
@@ -70,7 +70,7 @@ class CoinScrapper(ReusableMethods):
                 else:
                     assert(client_codebases >= 1)
                     new_data_for_yml['client_codebases'] = client_codebases
-                new_data_for_yml['client_codebases_la'] = time.strftime('%l:%M%p %Z on %b %d, %Y') 
+                new_data_for_yml['client_codebases_la'] = current_time()
             except Exception as e: 
                 err = 'ERROR FINDING {} CLIENT CODEBASES'.format(self.name) + ': ' + str(e)
                 self.log(err)
@@ -88,7 +88,7 @@ class CoinScrapper(ReusableMethods):
                 else:
                     assert(consensus_distribution >= 1)
                     new_data_for_yml['consensus_distribution'] = consensus_distribution
-                new_data_for_yml['consensus_distribution_la'] = time.strftime('%l:%M%p %Z on %b %d, %Y') 
+                new_data_for_yml['consensus_distribution_la'] = current_time()
             except Exception as e: 
                 err = 'ERROR FINDING {} CONSENSUS DISTRIBUTION'.format(self.name) + ': ' + str(e)
                 self.log(err)
