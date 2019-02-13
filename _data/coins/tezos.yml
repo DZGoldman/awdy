@@ -1,17 +1,18 @@
 client_codebases: 1
-client_codebases_la: ' 8:43AM EST on Jan 29, 2019'
+client_codebases_la: ' 9:44AM EST on Feb 13, 2019'
 client_codebases_source: http://tzscan.io/network
 consensus: LPoS
 consensus_distribution: 7
-consensus_distribution_la: ' 8:43AM EST on Jan 29, 2019'
+consensus_distribution_la: ' 9:44AM EST on Feb 13, 2019'
 consensus_distribution_source: http://tzscan.io/rolls-distribution
 incentivized: Y
 name: Tezos
-public_nodes: 75
-public_nodes_la: ' 8:43AM EST on Jan 29, 2019'
+public_nodes: 69
+public_nodes_la: ' 9:44AM EST on Feb 13, 2019'
 public_nodes_source: http://tzscan.io/network?r=50&state=running
 symbol: XTZ
 url: http://Tezos.com
 wealth_distribution: 18
-wealth_distribution_la: ' 8:43AM EST on Jan 29, 2019'
+wealth_distribution_la: ' 9:44AM EST on Feb 13, 2019'
 wealth_distribution_source: http://www.tezex.info/accounts
+notes: Data unavailable; over 50% currently unknown https://tzscan.io/rolls-distribution
