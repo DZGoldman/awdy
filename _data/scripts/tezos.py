@@ -28,7 +28,7 @@ class Tezos(CoinScrapper):
         return 1
 
     def get_consensus_distribution(self):
-        # TODO: Currently doesn't include 'other' - NEED TO BE CONSISTENT ACCROSS COINS (I think we should just list the 'unknown %')
+        return 'n/a'
         self.get_page("https://tzscan.io/rolls-distribution")
         table = self.find_element('.table')
         readtable = self.read_table(table, converters = {'Percent': self.percentage_string_to_float})

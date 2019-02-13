@@ -1,5 +1,4 @@
 from coinscrapper import CoinScrapper
-
 class Bitcoin(CoinScrapper):
 
     def __init__ (self, driver):
@@ -35,5 +34,11 @@ class Bitcoin(CoinScrapper):
         # Other NOTE: "Unknown" is currently counted as a single pool (the biggest one in fact) potentially skewing the data
         table = self.find_element("#known_pools")
         pools = self.read_table(table,converters={"count": int} )
+        unknown =  int(pools[pools['Relayed By']=="Unknown" ]['count'])
+        pools = pools[pools['Relayed By']!="Unknown" ]
         cumulative_sum = self.get_cumulative_grouping_count(pools['count'], 0.5)
+        return {
+            'cumulative_sum': cumulative_sum,
+            'unknown': unknown
+        }
         return cumulative_sum

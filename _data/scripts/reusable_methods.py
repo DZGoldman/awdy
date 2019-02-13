@@ -52,5 +52,13 @@ class ReusableMethods():
         self.get_page("https://chainz.cryptoid.info/{symbol}/#!extraction".format(symbol = self.symbol))
         table = self.find_element('#pools-share')
         read_table = self.read_table(table ,converters={"Last 1000": self.percentage_string_to_float})
-        return self.get_cumulative_grouping_count(read_table["Last 1000"], .5)
+        unknown =  int(read_table[read_table['Pool/Miner']=="All others" ]['Last 1000'])
+        read_table = read_table[read_table['Pool/Miner']!="All others" ]
+        
+        cumulative_sum =  self.get_cumulative_grouping_count(read_table["Last 1000"], .5)
+
+        return {
+            'cumulative_sum': cumulative_sum,
+            'unknown': unknown
+        }
 

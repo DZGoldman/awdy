@@ -4,11 +4,16 @@ import pandas as pd
 import numpy as np
 from reusable_methods import ReusableMethods
 import requests
+from pytz import timezone
 
 cwd = os.getcwd()
 
+def current_time():
+    tz = timezone('EST')
+    return str(datetime.datetime.now(tz))
+
 with open(cwd + '/log.log', 'a') as f:
-    f.write('\n\nstart!\n')
+    f.write('\n\nstart! ' + current_time() + ' \n')
 
 class CoinScrapper(ReusableMethods):
     '''
@@ -73,6 +78,11 @@ class CoinScrapper(ReusableMethods):
         if options['consensus_distribution']:
             try:
                 consensus_distribution  = self.get_consensus_distribution()
+
+                if isinstance(consensus_distribution, dict):
+                    new_data_for_yml['consensus_distribution_unknown'] = consensus_distribution.get('unknown')
+                    consensus_distribution = consensus_distribution['cumulative_sum']
+
                 if consensus_distribution == 'n/a':
                     new_data_for_yml['consensus_distribution'] = ''
                 else:
@@ -168,9 +178,10 @@ class CoinScrapper(ReusableMethods):
 
     def log(self, message):
         print(message)
-        message = str(datetime.datetime.now()) +': ' + message
+        message = current_time() +': ' + message
         with open(cwd + '/log.log', 'a') as f:
             f.write(message + '\n')
+
 # cwd = os.getcwd()
 # print(cwd)
 # logging.basicConfig(filename=cwd + '/errorlog.log', level=logging.DEBUG, 
