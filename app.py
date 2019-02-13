@@ -42,7 +42,7 @@ def index():
 def cron():
     global all_coin_data
     while True:
-        time.sleep(60*60*2)
+        time.sleep(60*5)
         all_coin_data = main()
 Thread(target = cron).start()
 
