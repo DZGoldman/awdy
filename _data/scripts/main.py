@@ -31,7 +31,7 @@ from myriad import Myriad
 # no macosx support for Xvfb, lazy develpment env solution:
 if os.environ.get('AWDY_PROD'):
     from pyvirtualdisplay import Display
-    display = Display(visible=0, size=(800, 800))  
+    display = Display(visible=0, size=(1024, 768))  
     display.start()
 
 
@@ -79,6 +79,9 @@ coins = [
     # Zencash,
     # Qtum,
     ]
+
+# coins = [Iota]
+
 for coin in coins:
     coin(driver).main(
         {
