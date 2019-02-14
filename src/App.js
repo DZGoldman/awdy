@@ -13,7 +13,7 @@ class App extends Component {
     this.state = {
       coinData: (typeof window.allCoinData == 'string') ? JSON.parse(window.allCoinData) :window.allCoinData ,
       decentralizedClicks: 0,
-      columnHeaders:    ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "public_nodes", "wealth_distribution", "rank", "incentivized"],
+      columnHeaders:    ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "public_nodes", "wealth_distribution", "rank", "incentivized", "notes"],
       readable: {
         "name": "Name",
         "symbol": "Symbol",
@@ -23,7 +23,8 @@ class App extends Component {
         "public_nodes": "# of public nodes",
         "wealth_distribution": "% of money supply held by top 100 accounts",
         "rank": "Rank",
-        "incentivized": "Incentivized?"
+        "incentivized": "Incentivized?",
+        "notes": "Notes"
       },
       sortColumn: "name",
       sortAscending: true,
@@ -127,6 +128,7 @@ renderWithInfo = (coin,colName, add="")=>{
   //         <p data-tip='this is a tip' data-for='test'>tooltip test</p>
   return <td> <a  data-tip={lastUpdatedMessage} data-for={cellId}target="_blank" href={coin[colName+'_source']}> { this.handleNull(coin[colName]) +  add}</a>
             <ReactTooltip type='info' place="right" id={cellId}></ReactTooltip>
+            {(colName == 'consensus_distribution' && coin.consensus_distribution_unknown) ? <span className='unknown-notice'> ({coin.consensus_distribution_unknown}% unknown)</span> : null}
             </td>
 }
 renderIncentivized = (coin)=>{
@@ -208,6 +210,7 @@ handleNull = (dataPoint)=>{
           <tbody>
             {/* <FlipMove> */}
             {coinData && coinData.length > 0 && coinData.map((coin, index) => {
+              const id = coin.symbol + index
               return (
                 <tr key={coin.symbol}>
       {/* columnHeaders:    ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "public_nodes", "wealth_distribution", "rank", "incentivized"], */}
@@ -221,6 +224,10 @@ handleNull = (dataPoint)=>{
                   {this.renderWithInfo(coin, "wealth_distribution", "%")}
                   <td>{coin.rank}</td>
                   {this.renderIncentivized(coin)}
+              <td> {coin.notes && <span className='notes-wrapper' data-tip={coin.notes} data-for={id}>*</span>  }
+               {coin.notes && <ReactTooltip className='notes-tooltip' type='info' place="left" id={id}></ReactTooltip> }
+
+     </td>
                  
           
                   
