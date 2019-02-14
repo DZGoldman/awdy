@@ -76,19 +76,39 @@ class App extends Component {
     });
   };
 
+  getRankData = ()=> {
+    Promise.all([
+      axios.get('https://api.coinmarketcap.com/v1/ticker/'),
+      axios.get('https://api.coinmarketcap.com/v1/ticker/?limit=100&start=100')
+    ]) .then((d)=>{
+      const rankHash = {}
+      const x = d[0].data;
+      const y =  d[1].data;
+      [...x,...y].forEach((coin)=>{
+        rankHash[coin.symbol] = Number(coin.rank);
+      })
+      const coinData = [...this.state.coinData]
+      coinData.forEach((coin)=>{
+        coin.rank = rankHash[coin.symbol]
+      })
+      console.log('xy',coinData);
+      
+      this.setState({coinData})
+    })
+  }
   componentDidMount = () => {
     if (!window.allCoinData) {
-      axios.get(this.dataUrl).then(d => {
-        this.setState({
-          coinData: d.data
-        },()=>{
-          this.sortBy('symbol')
-        });
-      });
-      // 
-      // window.setTimeout(()=>{
 
-      // }, 2000)
+        axios.get(this.dataUrl)
+  .then(d => {
+    this.setState({
+      coinData: d.data
+        },()=>{
+        this.sortBy('symbol');
+        this.getRankData()
+      });
+    });
+
     }
     window.r = this
   };
@@ -103,12 +123,21 @@ class App extends Component {
 
 renderWithInfo = (coin,colName, add="")=>{
   const cellId =    `${coin}-${colName}`
-  console.log(colName + "_la")
   const lastUpdatedMessage = `Last Updated: ${coin[colName+'_la']}`
   //         <p data-tip='this is a tip' data-for='test'>tooltip test</p>
   return <td> <a  data-tip={lastUpdatedMessage} data-for={cellId}target="_blank" href={coin[colName+'_source']}> { this.handleNull(coin[colName]) +  add}</a>
             <ReactTooltip type='info' place="right" id={cellId}></ReactTooltip>
             </td>
+}
+renderIncentivized = (coin)=>{
+  const id = coin.symbol + 'inc'
+  if (!coin.notes){
+    return <td> {coin.incentivized} </td>
+  } else {
+    return <td> <span className='notes-wrapper' data-tip={coin.notes} data-for={id}>{coin.incentivized}</span>  
+                <ReactTooltip className='notes-tooltip' type='info' place="left" id={id}></ReactTooltip>
+     </td>
+  }
 }
 handleNull = (dataPoint)=>{
   return dataPoint == "" ? "?" : dataPoint
@@ -183,7 +212,7 @@ handleNull = (dataPoint)=>{
                 <tr key={coin.symbol}>
       {/* columnHeaders:    ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "public_nodes", "wealth_distribution", "rank", "incentivized"], */}
 
-                  <td><a target ='_blank' href={ coin.homepage}>{coin.name}</a></td>
+                  <td><a target ='_blank' href={ coin.url}>{coin.name}</a></td>
                   <td>{coin.symbol}</td>
                   {this.renderWithInfo(coin, "client_codebases")}
                   <td>{coin.consensus}</td>
@@ -191,7 +220,7 @@ handleNull = (dataPoint)=>{
                   {this.renderWithInfo(coin, "public_nodes")}
                   {this.renderWithInfo(coin, "wealth_distribution", "%")}
                   <td>{coin.rank}</td>
-                  <td>{coin.incentivized}</td>
+                  {this.renderIncentivized(coin)}
                  
           
                   

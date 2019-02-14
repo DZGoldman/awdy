@@ -191,3 +191,12 @@ a{
 #cswrap>a{
   color: rgb(0, 94, 255)
 }
+.notes-wrapper{
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.notes-tooltip{
+  width: 200px;
+}
