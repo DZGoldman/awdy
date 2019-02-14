@@ -1,31 +1,24 @@
 from selenium import webdriver
+import time, os, yaml
 
-import time, os
-from bitcoin import Bitcoin
-from ethereum import Ethereum 
-from ripple import Ripple
-from stellar import Stellar
-from litecoin import Litecoin
-from bitcoincash import BitcoinCash
-from digibyte import Digibyte
-from dogecoin import Dogecoin 
-from monero import Monero
-from neo import Neo 
-from siacoin import Siacoin
-from zcash import ZCash
-from cardano import Cardano
-from ardor import Ardor
-from dash import Dash
-from decred import Decred
-from ethereumclassic import EthereumClassic 
-from iota import Iota 
-from nano import Nano
-from nem import Nem
-from qtum import Qtum 
-from tezos import Tezos 
-from vertcoin import Vertcoin 
-from zencash import Zencash
-from myriad import Myriad
+
+import importlib, inspect
+
+import yaml, sys
+if sys.argv[-1] == 'inp':
+    config =  sys.argv[-2].split(',')
+else:
+    stream = open('config.yml', 'r')
+    config = yaml.load(stream).copy()
+    config = sorted([coin for coin in config if config[coin]])
+
+coins = []
+for coin_name in config:
+    coin = importlib.import_module(coin_name) 
+    for x in inspect.getmembers(coin):
+        if x[0].lower() == coin_name:
+            coins.append(x[1])
+            break  
 
 
 # no macosx support for Xvfb, lazy develpment env solution:
@@ -46,41 +39,6 @@ options.add_argument("--no-sandbox")
 driver = webdriver.Chrome(chrome_options=options) 
 
 start = time.time()
-coins = [
-    Bitcoin, 
-    Ethereum, 
-    Ripple,
-    Litecoin,
-    BitcoinCash, 
-    Digibyte,
-    Dash,
-    Cardano,
-    Iota,
-    Nem,
-    Vertcoin,
-    Myriad,
-    Neo,
-    Tezos,
-    Decred,
-    Siacoin,
-    
-    
-    # Incomplete:
-    # Want:
-    # ZCash,
-    # Monero,
-    # Dogecoin
-    # EthereumClassic,
-    # Stellar,
-
-
-    # Nano,
-    # Ardor,
-    # Zencash,
-    # Qtum,
-    ]
-
-# coins = [Iota]
 
 for coin in coins:
     coin(driver).main(
@@ -95,11 +53,3 @@ for coin in coins:
 print('Scrape completed in ', time.time() - start)
 
 driver.quit()
-
-    # def get_all_coins (self):
-    #     res = requests.get("https://api.coinmarketcap.com/v1/ticker/" params={
-    #         'limit':300
-    #     })
-    #     return res.json()
-    # def map_symbols_to_data(self, data):
-    #     return {coin['symbol'].lower(): coin for coin in data}
