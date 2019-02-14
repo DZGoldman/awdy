@@ -1,6 +1,7 @@
 import requests, time
 from collections import defaultdict 
 chainz_root = 'https://chainz.cryptoid.info/{symbol}/api.dws?q={query}'
+
 class ReusableMethods():
     def _get_nodes_data_(self):
         # memoize to save an api call
@@ -54,9 +55,7 @@ class ReusableMethods():
         read_table = self.read_table(table ,converters={"Last 1000": self.percentage_string_to_float})
         unknown =  int(read_table[read_table['Pool/Miner']=="All others" ]['Last 1000'])
         read_table = read_table[read_table['Pool/Miner']!="All others" ]
-        
-        cumulative_sum =  self.get_cumulative_grouping_count(read_table["Last 1000"], .5)
-
+        cumulative_sum =  self.get_cumulative_grouping_count(read_table["Last 1000"], .5, target_sum=100)
         return {
             'cumulative_sum': cumulative_sum,
             'unknown': unknown

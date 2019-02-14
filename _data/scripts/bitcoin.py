@@ -1,4 +1,5 @@
 from coinscrapper import CoinScrapper
+import requests
 class Bitcoin(CoinScrapper):
 
     def __init__ (self, driver):
@@ -29,16 +30,33 @@ class Bitcoin(CoinScrapper):
         return client_codebases
 
     def get_consensus_distribution(self):
+        try:
+            return self.get_consensus_distribution_api()
+        except:
+            return self.get_consensus_distribution_scrape()
+    def get_consensus_distribution_scrape(self):
         self.get_page("https://www.blockchain.com/pools?timespan=24hours");
 
-        # Other NOTE: "Unknown" is currently counted as a single pool (the biggest one in fact) potentially skewing the data
         table = self.find_element("#known_pools")
         pools = self.read_table(table,converters={"count": int} )
         unknown =  int(pools[pools['Relayed By']=="Unknown" ]['count'])
         pools = pools[pools['Relayed By']!="Unknown" ]
-        cumulative_sum = self.get_cumulative_grouping_count(pools['count'], 0.5)
+        cumulative_sum = self.get_cumulative_grouping_count(pools['count'], 0.5, target_sum=100)
         return {
             'cumulative_sum': cumulative_sum,
             'unknown': unknown
         }
-        return cumulative_sum
+    def get_consensus_distribution_api(self):
+        # decide how to handle
+        res = requests.get('https://api.blockchain.info/pools?timespan=1days')
+        data_json = res.json()
+        data = [data_json[key] for key in data_json]
+        total =  sum(data)
+        unknown = round(100 * data_json.get('Unknown') / total) 
+        data.remove(data_json.get('Unknown') )
+        cumulative_sum = self.get_cumulative_grouping_count(data, 0.5, target_sum = total)
+
+        return {
+            'cumulative_sum': cumulative_sum,
+            'unknown': unknown
+        }

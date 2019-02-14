@@ -1,6 +1,5 @@
 from coinscrapper import CoinScrapper
 class BitcoinCash(CoinScrapper):
-
     def __init__ (self, driver):
         self.name = 'bitcoincash'
         self.driver = driver
@@ -31,10 +30,10 @@ class BitcoinCash(CoinScrapper):
             if ',' in text:
                 s = text.split(',')[1].replace('%', '').strip()
                 if text.split(',')[0].strip() ==  'Other Mining Pools':
-                    unknown = s
+                    unknown = float(s)
                 else:
                     a.append(float(s))
-        consensus_distribution = self.get_cumulative_grouping_count(a, .5)
+        consensus_distribution = self.get_cumulative_grouping_count(a, .5, target_sum=100)
         return {
             'cumulative_sum': consensus_distribution,
             'unknown': unknown
