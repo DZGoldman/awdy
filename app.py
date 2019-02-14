@@ -43,7 +43,7 @@ def cron():
     global all_coin_data
     while True:
         time.sleep(60*5)
-        all_coin_data = main()
+        all_coin_data = set_up()
 Thread(target = cron).start()
 
 if __name__ == '__main__':
