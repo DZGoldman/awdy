@@ -16,7 +16,7 @@ tezos: true
 decred: true
 siacoin: true
 ardor: false
-dogecoin: false
+dogecoin: true
 ethereumclassic: false
 monero: true
 nano: false
