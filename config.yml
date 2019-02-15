@@ -18,7 +18,7 @@ siacoin: true
 ardor: false
 dogecoin: false
 ethereumclassic: false
-monero: false
+monero: true
 nano: false
 qtum: false
 stellar: false

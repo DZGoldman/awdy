@@ -156,6 +156,10 @@ class CoinScrapper(ReusableMethods):
     def extract_first_int(self, string):
         return int(re.search(r'\d+', string).group())
 
+    def extract_first_float(self,string):
+        r = re.search(r'[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?', string)
+        return r and float(r.group(0))
+
     def get_cumulative_grouping_count(self, data, target_percentage, target_sum = False):
         '''
         accepts list or dataframe of numbers, where each number represents counts of categories. Returns minimum number of categories such that make up target_percentage of total. Total is calculated or passed in directly. (I hope this makes sense)

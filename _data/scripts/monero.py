@@ -18,5 +18,4 @@ class Monero(CoinScrapper):
         return 1
 
     def get_consensus_distribution(self):
-        # TODO can't get from source (pdf)
-        pass
+        return self.pool_stats_consensus_scrape(base_unit='H')
