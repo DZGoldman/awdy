@@ -2,14 +2,15 @@ bitcoin: true
 ethereum: true
 ripple: true
 litecoin: true
-bitcoincash: false
+bitcoincash: true
 digibyte: true
 dash: true
 cardano: true
 iota: true
 nem: true
 vertcoin: true
-myriad: true
+bitcoinsv: true
+myriad: false
 neo: true
 tezos: true
 decred: true
@@ -21,5 +22,5 @@ monero: false
 nano: false
 qtum: false
 stellar: false
-zcash: false
+zcash: True
 zencash: false
