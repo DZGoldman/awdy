@@ -1,7 +1,6 @@
 from coinscrapper import CoinScrapper
 import time
 from collections import defaultdict
-
 class Neo(CoinScrapper):
 
     def __init__ (self, driver):
@@ -57,6 +56,7 @@ class Neo(CoinScrapper):
         time.sleep(5)
 
         table = self.find_element("#dataTable")
+        time.sleep(2)
         readtable = self.read_table(table, converters={'NEO Running Total, Percent': self.percentage_string_to_float})
         neo_col = float(readtable['NEO Running Total, Percent'])
         return neo_col
