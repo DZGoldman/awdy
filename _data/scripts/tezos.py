@@ -28,8 +28,20 @@ class Tezos(CoinScrapper):
         return 1
 
     def get_consensus_distribution(self):
-        return 'n/a'
         self.get_page("https://tzscan.io/rolls-distribution")
         table = self.find_element('.table')
         readtable = self.read_table(table, converters = {'Percent': self.percentage_string_to_float})
-        return self.get_cumulative_grouping_count(readtable['Percent'], .5)
+        cumulative_sum = self.get_cumulative_grouping_count(readtable['Percent'], .5)
+
+        # TODO: make better
+        tspans = self.find_elements('tspan')
+        other_tag = [tspan for tspan in tspans if 'Others' in tspan.text]
+        assert(len(other_tag)==1)
+        other_text = other_tag[0].text.split(':')[1]
+        unknown = round(self.percentage_string_to_float(other_text))
+
+        return {
+            'cumulative_sum': cumulative_sum,
+            'unknown': unknown
+        }
+
