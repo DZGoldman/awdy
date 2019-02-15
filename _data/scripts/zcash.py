@@ -10,7 +10,6 @@ class ZCash(CoinScrapper):
     def get_public_nodes(self):
         self.get_page("https://explorer.zcha.in/network")
         el = self.find_element("#count")
-        print(el)
         return self.extract_first_int(el.text)
         
     def get_wealth_distribution(self):
