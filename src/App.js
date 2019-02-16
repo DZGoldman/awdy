@@ -252,7 +252,7 @@ handleNull = (dataPoint, add='' )=>{
           <div className="footer" id="footer">
             <div className="footer-bottom">
               <div className="footer-row">
-                <div>built & maintained by Daniel Goldman </div>
+                <div>Built & maintained by Daniel Goldman </div>
                 <div>
                   {" "}
                   <a target="_blank" href="https://twitter.com/DZack23">
@@ -286,21 +286,21 @@ handleNull = (dataPoint, add='' )=>{
                 {" "}
 
                 <a target="_blank" href="https://arewestableyet.com/">
-                sister site
+                Sister site
                 </a>
               </div>
               <div className="footer-row">
-                <a target="_blank" href="https://en.wikipedia.org/wiki/Goodhart%27s_law"> disclaimer </a>
+                <a target="_blank" href="https://en.wikipedia.org/wiki/Goodhart%27s_law"> Disclaimer </a>
                 </div>
               <div className="footer-row">
-              originally created by Jackson Palmer; he's no longer affiliated. please don't bother him.
+              Originally created by Jackson Palmer; he's no longer affiliated. Please don't bother him.
                 </div>
               <div id="tips" className="footer-row">
                 <div>
                   {" "}
                   <p>
                     {" "}
-                    help promote wealth decentralization by giving me yours:
+                    Help promote wealth decentralization by giving me yours:
                   </p>{" "}
                 </div>
     
