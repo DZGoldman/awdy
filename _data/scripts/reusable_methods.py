@@ -1,7 +1,6 @@
 import requests, time
 from collections import defaultdict 
 chainz_root = 'https://chainz.cryptoid.info/{symbol}/api.dws?q={query}'
-from IPython import embed
 
 class ReusableMethods():
     def _get_nodes_data_(self):
