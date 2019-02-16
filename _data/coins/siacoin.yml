@@ -1,17 +1,17 @@
 client_codebases: 1
-client_codebases_la: '2019-02-15 18:55:05.183630-05:00'
+client_codebases_la: '2019-02-16 16:26:08.508184-05:00'
 client_codebases_source: https://siastats.info/hosts_map
 consensus: PoW
 consensus_distribution: 1
-consensus_distribution_la: '2019-02-15 18:56:02.087840-05:00'
+consensus_distribution_la: '2019-02-16 16:27:03.872777-05:00'
 consensus_distribution_source: https://siastats.info/mining_pools
 incentivized: Y
 name: Siacoin
-public_nodes: 280
-public_nodes_la: '2019-02-15 18:55:05.183535-05:00'
+public_nodes: 275
+public_nodes_la: '2019-02-16 16:26:08.508138-05:00'
 public_nodes_source: https://siastats.info
 symbol: SC
 url: https://sia.tech/
 wealth_distribution: ''
-wealth_distribution_la: '2019-02-15 18:55:04.600620-05:00'
+wealth_distribution_la: '2019-02-16 16:26:07.948599-05:00'
 wealth_distribution_source: null

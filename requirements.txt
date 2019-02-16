@@ -10,3 +10,4 @@ Flask_cors
 yaml
 pyvirtualdisplay
 lxml
+gunicorn

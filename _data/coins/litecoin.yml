@@ -1,18 +1,18 @@
 client_codebases: 12
-client_codebases_la: '2019-02-15 18:53:50.798237-05:00'
+client_codebases_la: '2019-02-16 16:24:57.563513-05:00'
 client_codebases_source: https://chainz.cryptoid.info/ltc/#!network
 consensus: PoW
 consensus_distribution: 4
-consensus_distribution_la: '2019-02-15 18:53:56.680269-05:00'
+consensus_distribution_la: '2019-02-16 16:25:02.126097-05:00'
 consensus_distribution_source: https://www.litecoinpool.org/pools
 consensus_distribution_unknown: 0
 incentivized: Y
 name: Litecoin
-public_nodes: 157
-public_nodes_la: '2019-02-15 18:53:50.794518-05:00'
+public_nodes: 189
+public_nodes_la: '2019-02-16 16:24:57.561522-05:00'
 public_nodes_source: https://chainz.cryptoid.info/ltc/#!network
 symbol: LTC
 url: https://litecoin.org
 wealth_distribution: 41
-wealth_distribution_la: '2019-02-15 18:53:48.540933-05:00'
+wealth_distribution_la: '2019-02-16 16:24:55.289450-05:00'
 wealth_distribution_source: https://bitinfocharts.com/top-100-richest-litecoin-addresses.html

@@ -1,18 +1,18 @@
 client_codebases: 8
-client_codebases_la: '2019-02-15 18:53:11.881761-05:00'
+client_codebases_la: '2019-02-16 16:24:32.709792-05:00'
 client_codebases_source: https://www.ethernodes.org/network/1
 consensus: PoW
 consensus_distribution: 3
-consensus_distribution_la: '2019-02-15 18:53:16.981632-05:00'
+consensus_distribution_la: '2019-02-16 16:24:36.674126-05:00'
 consensus_distribution_source: https://etherscan.io/stat/miner?range=7&blocktype=blocks
 consensus_distribution_unknown: 0
 incentivized: Y
 name: Ethereum
-public_nodes: 8977
-public_nodes_la: '2019-02-15 18:53:11.854687-05:00'
+public_nodes: 8628
+public_nodes_la: '2019-02-16 16:24:32.687052-05:00'
 public_nodes_source: https://www.ethernodes.org/
 symbol: ETH
 url: https://ethereum.org
 wealth_distribution: 33
-wealth_distribution_la: '2019-02-15 18:53:03.953494-05:00'
+wealth_distribution_la: '2019-02-16 16:24:25.754684-05:00'
 wealth_distribution_source: https://etherscan.io/accounts

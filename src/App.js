@@ -13,18 +13,17 @@ class App extends Component {
     this.state = {
       coinData: (typeof window.allCoinData == 'string') ? JSON.parse(window.allCoinData) :window.allCoinData ,
       decentralizedClicks: 0,
-      columnHeaders:    ["name", "symbol", "client_codebases", "consensus", 'consensus_distribution', "public_nodes", "wealth_distribution", "rank", "incentivized", "notes"],
+      columnHeaders:    ["name", "symbol","rank", "client_codebases", "consensus", 'consensus_distribution', "public_nodes", "wealth_distribution","incentivized", "notes"],
       readable: {
         "name": "Name",
         "symbol": "Symbol",
+        "rank": "Rank",
         "client_codebases": "# of client codebases that account for > 90% of nodes",
         "consensus": "Consensus",
         'consensus_distribution': "# of entities in control of >50% of voting/mining power",
         "public_nodes": "# of public nodes",
         "wealth_distribution": "% of money supply held by top 100 accounts",
-        "rank": "Rank",
-        "incentivized": "Incentivized?",
-        "notes": "Notes"
+        "incentivized": "Incentivized? (/notes)",
       },
       sortColumn: "name",
       sortAscending: true,
@@ -94,7 +93,9 @@ class App extends Component {
       })
       console.log('xy',coinData);
       
-      this.setState({coinData})
+      this.setState({coinData},()=>{
+        this.sortBy('rank')
+      })
     })
   }
   componentDidMount = () => {
@@ -113,7 +114,6 @@ class App extends Component {
     this.setState({
       coinData: data
         },()=>{
-        this.sortBy('symbol');
         this.getRankData()
       });
     });
@@ -132,11 +132,16 @@ class App extends Component {
 
 renderWithInfo = (coin,colName, add="")=>{
   const cellId =    `${coin}-${colName}`
-  const lastUpdatedMessage = `Last Updated: ${coin[colName+'_la']}`
+  var dataTip;
+  if (coin[colName+'_notes']){
+     dataTip = coin[colName+'_notes']
+  } else {
+    dataTip = coin[colName+'_source'] ? `Last Updated: ${coin[colName+'_la']}` : 'data unavailable'
+  }
   //         <p data-tip='this is a tip' data-for='test'>tooltip test</p>
   const Unknown = (colName == 'consensus_distribution' && coin.consensus_distribution_unknown) || 0
-  return <td> <a  data-tip={lastUpdatedMessage} data-for={cellId}target="_blank" href={coin[colName+'_source']}> { Unknown < 40 ? this.handleNull(coin[colName]) +  add : '???'}</a>
-            <ReactTooltip type='info' place="right" id={cellId}></ReactTooltip>
+  return <td> <a  data-tip={dataTip} data-for={cellId}target="_blank" href={coin[colName+'_source']}> { Unknown < 40 ? this.handleNull(coin[colName], add) : '???'}</a>
+            <ReactTooltip className='notes-tooltip'  type='info' place="right" id={cellId}></ReactTooltip>
             {Unknown ? <span className='unknown-notice'> ({Unknown}% unknown)</span> : null}
             </td>
 }
@@ -150,8 +155,8 @@ renderIncentivized = (coin)=>{
      </td>
   }
 }
-handleNull = (dataPoint)=>{
-  return dataPoint == "" ? "???" : dataPoint
+handleNull = (dataPoint, add='' )=>{
+  return dataPoint == "" ? "???" : dataPoint + add
 }
   render() {
     const { coinData, columnHeaders, readable} = this.state;
@@ -226,17 +231,13 @@ handleNull = (dataPoint)=>{
 
                   <td><a target ='_blank' href={ coin.url}>{coin.name}</a></td>
                   <td>{coin.symbol}</td>
+                  <td>{coin.rank}</td>
                   {this.renderWithInfo(coin, "client_codebases")}
                   <td>{coin.consensus}</td>
                   {this.renderWithInfo(coin, "consensus_distribution")}
                   {this.renderWithInfo(coin, "public_nodes")}
                   {this.renderWithInfo(coin, "wealth_distribution", "%")}
-                  <td>{coin.rank}</td>
                   {this.renderIncentivized(coin)}
-              <td> {coin.notes && <span className='notes-wrapper' data-tip={coin.notes} data-for={id}>*</span>  }
-               {coin.notes && <ReactTooltip className='notes-tooltip' type='info' place="left" id={id}></ReactTooltip> }
-
-     </td>
                  
           
                   

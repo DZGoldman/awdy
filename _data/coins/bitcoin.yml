@@ -1,18 +1,18 @@
 client_codebases: 1
-client_codebases_la: '2019-02-15 18:50:55.741196-05:00'
+client_codebases_la: '2019-02-16 16:22:37.870822-05:00'
 client_codebases_source: https://coin.dance/nodes#allNodes
 consensus: PoW
 consensus_distribution: 4
-consensus_distribution_la: '2019-02-15 18:50:56.643736-05:00'
+consensus_distribution_la: '2019-02-16 16:22:38.325848-05:00'
 consensus_distribution_source: https://blockchain.info/pools
-consensus_distribution_unknown: 19
+consensus_distribution_unknown: 23
 incentivized: Y
 name: Bitcoin
-public_nodes: 10358
-public_nodes_la: '2019-02-15 18:50:55.443850-05:00'
+public_nodes: 10386
+public_nodes_la: '2019-02-16 16:22:37.621843-05:00'
 public_nodes_source: https://coin.dance/nodes
 symbol: BTC
 url: https://bitcoin.org
 wealth_distribution: 16
-wealth_distribution_la: '2019-02-15 18:50:45.668800-05:00'
+wealth_distribution_la: '2019-02-16 16:22:26.991081-05:00'
 wealth_distribution_source: https://bitinfocharts.com/top-100-richest-bitcoin-addresses.html

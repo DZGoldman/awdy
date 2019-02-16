@@ -1,19 +1,19 @@
 client_codebases: 1
-client_codebases_la: '2019-02-15 18:52:11.228607-05:00'
+client_codebases_la: '2019-02-16 16:23:44.735356-05:00'
 client_codebases_source: https://dcrstats.com/map
 consensus: PoW/PoS
 consensus_distribution: 2
-consensus_distribution_la: '2019-02-15 18:52:14.734032-05:00'
+consensus_distribution_la: '2019-02-16 16:23:48.025123-05:00'
 consensus_distribution_source: https://dcrstats.com/pow
 incentivized: Y
 name: Decred
 notes: Consensus distribution is calculated based on PoW mining alone, as blocks are
   produced by PoW miners. PoS stakers only provide finality through a vote.
-public_nodes: 226
-public_nodes_la: '2019-02-15 18:52:11.228574-05:00'
+public_nodes: 227
+public_nodes_la: '2019-02-16 16:23:44.735325-05:00'
 public_nodes_source: https://dcrstats.com/map
 symbol: DCR
 url: https://www.decred.org/
 wealth_distribution: 38
-wealth_distribution_la: '2019-02-15 18:52:06.773187-05:00'
+wealth_distribution_la: '2019-02-16 16:23:40.104571-05:00'
 wealth_distribution_source: https://www.dcr.observer/

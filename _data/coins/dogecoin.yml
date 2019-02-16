@@ -1,17 +1,18 @@
 client_codebases: 1
-client_codebases_la: '2019-02-15 18:52:58.735471-05:00'
+client_codebases_la: '2019-02-16 16:24:21.433691-05:00'
 client_codebases_source: null
 consensus: PoW
 consensus_distribution: 3
-consensus_distribution_la: '2019-02-15 18:52:59.169236-05:00'
+consensus_distribution_la: '2019-02-16 16:24:21.807508-05:00'
 consensus_distribution_source: https://dogechain.info
 incentivized: Y
 name: Dogecoin
-public_nodes: 123
-public_nodes_la: '2019-02-15 18:52:58.735419-05:00'
+notes: much coin
+public_nodes: 122
+public_nodes_la: '2019-02-16 16:24:21.433650-05:00'
 public_nodes_source: null
 symbol: DOGE
 url: http://dogecoin.com
 wealth_distribution: 60
-wealth_distribution_la: '2019-02-15 18:52:36.521815-05:00'
+wealth_distribution_la: '2019-02-16 16:24:01.418328-05:00'
 wealth_distribution_source: https://bitinfocharts.com/dogecoin/

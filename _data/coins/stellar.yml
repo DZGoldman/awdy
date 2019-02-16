@@ -1,14 +1,20 @@
+client_codebases: 1
+client_codebases_la: '2019-02-16 16:27:06.064982-05:00'
+client_codebases_source: https://www.stellarbeat.io/nodes
+consensus: FBA
+consensus_distribution: 1
+consensus_distribution_la: '2019-02-16 16:27:06.064995-05:00'
+consensus_distribution_source: https://dashboard.stellar.org/
+incentivized: N
 name: Stellar
+notes: Users must specify own quorum set, picking their own validators. Web/desktop
+  wallets don't allow for that, hence 1 for consensus distribition.
+public_nodes: 124
+public_nodes_la: '2019-02-16 16:27:06.064945-05:00'
+public_nodes_source: https://www.stellarbeat.io/
 symbol: XLM
 url: https://stellar.org
-consensus: FBA
-incentivized: N
-consensus_distribution: 1
-consensus_distribution_source: https://dashboard.stellar.org/
-wealth_distribution: 95%
-wealth_distribution_source: http://www.stellar-richlist.com/
-client_codebases: 1
-client_codebases_source: https://www.stellarbeat.io/nodes
-public_nodes: 111
-public_nodes_source: https://www.stellarbeat.io/
-notes: Users must specify own quorum set, picking their own validators. Web/desktop wallets don't allow for that, hence 1 for consensus distribition.
+wealth_distribution: ''
+wealth_distribution_la: '2019-02-16 16:27:03.882356-05:00'
+wealth_distribution_source: data unavailable ( http://www.stellar-richlist.com/ has
+  gone down)

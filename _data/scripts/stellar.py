@@ -1,5 +1,5 @@
 from coinscrapper import CoinScrapper
-
+import requests
 # empty template for creating new coin, just for convenience
 class Stellar(CoinScrapper):
 
@@ -8,7 +8,9 @@ class Stellar(CoinScrapper):
         self.driver = driver
 
     def get_public_nodes(self):
-        self.get_page("https://www.stellarbeat.io/");
+        r = requests.get("https://api.stellarbeat.io/v1/nodes")
+        nodes = r.json()
+        return len([node for node in nodes if node.get('active')])
         # ???
         table =self.find_element('.table')
         table = self.find_element("#locations-table")
@@ -17,8 +19,8 @@ class Stellar(CoinScrapper):
         return int(public_node_count)
         
     def get_wealth_distribution(self):
-        # TODO need source
-        pass
+        # need source
+        return 'n/a'
 
     def get_client_codebases(self):
         # https://www.stellarbeat.io/nodes

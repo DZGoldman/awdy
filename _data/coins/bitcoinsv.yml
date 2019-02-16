@@ -1,20 +1,20 @@
 client_codebases: 1
-client_codebases_la: '2019-02-15 18:51:26.199981-05:00'
+client_codebases_la: '2019-02-16 16:23:06.149272-05:00'
 client_codebases_source: https://sv.coin.dance/nodes#allNodes
 consensus: PoW
-consensus_distribution: 3
-consensus_distribution_la: '2019-02-15 18:51:33.452958-05:00'
+consensus_distribution: 4
+consensus_distribution_la: '2019-02-16 16:23:11.605878-05:00'
 consensus_distribution_source: https://sv.coin.dance/blocks/today
-consensus_distribution_unknown: 34.72
+consensus_distribution_unknown: 39.58
 incentivized: Y
 name: Bitcoin SV
 public_node_count: 1685
 public_node_count_la: ' 8:06PM EST on Jan 27, 2019'
 public_nodes: 625
-public_nodes_la: '2019-02-15 18:51:26.143941-05:00'
+public_nodes_la: '2019-02-16 16:23:06.098630-05:00'
 public_nodes_source: https://sv.coin.dance/nodes
 symbol: BSV
 url: https://twitter.com/_Kevin_Pham
-wealth_distribution: 26
-wealth_distribution_la: '2019-02-15 18:51:19.045592-05:00'
+wealth_distribution: 25
+wealth_distribution_la: '2019-02-16 16:22:59.670953-05:00'
 wealth_distribution_source: https://bitinfocharts.com/top-100-richest-bitcoin%sv-addresses.html

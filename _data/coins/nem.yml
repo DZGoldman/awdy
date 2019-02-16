@@ -1,17 +1,19 @@
 client_codebases: 1
-client_codebases_la: '2019-02-15 18:54:29.604525-05:00'
+client_codebases_la: '2019-02-16 16:25:31.696475-05:00'
 client_codebases_source: https://nodeexplorer.com/
 consensus: POI
 consensus_distribution: ''
-consensus_distribution_la: '2019-02-15 18:54:29.604551-05:00'
-consensus_distribution_source: null
+consensus_distribution_la: '2019-02-16 16:25:31.696488-05:00'
+consensus_distribution_notes: NEM's consensus is determined by Supernodes with weighted
+  stake; unclear how best to quanitify this
+consensus_distribution_source: https://supernodes.nem.io/
 incentivized: Y
 name: NEM
-public_nodes: 441
-public_nodes_la: '2019-02-15 18:54:29.604475-05:00'
+public_nodes: 443
+public_nodes_la: '2019-02-16 16:25:31.696443-05:00'
 public_nodes_source: https://nodeexplorer.com/
 symbol: XEM
 url: https://nem.io/
 wealth_distribution: 62
-wealth_distribution_la: '2019-02-15 18:54:21.442382-05:00'
+wealth_distribution_la: '2019-02-16 16:25:25.287552-05:00'
 wealth_distribution_source: https://nemnodes.org/richlist/

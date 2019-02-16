@@ -1,24 +1,24 @@
 client_codebases: 1
-client_codebases_la: '2019-02-15 18:55:04.583120-05:00'
+client_codebases_la: '2019-02-16 16:26:07.938676-05:00'
 client_codebases_source: https://xrpcharts.ripple.com/#/topology
 consensus: RPCA (voting system)
 consensus_distribution: 1
-consensus_distribution_la: '2019-02-15 18:55:04.583147-05:00'
+consensus_distribution_la: '2019-02-16 16:26:07.938698-05:00'
 consensus_distribution_source: https://ripple.com/dev-blog/decentralization-strategy-update/
 consensus_distribution_unknown: null
 incentivized: N
 name: Ripple
-notes: By default, rippled only points to a list of only Ripple-operated validator
-  nodes (currently 16) at https://vl.ripple.com (https://github.com/ripple/rippled/blob/develop/cfg/validators-example.txt).
+notes: By default, ripple only points to a list of only Ripple-operated validator
+  nodes (currently 26) at https://vl.ripple.com (https://github.com/ripple/rippled/blob/develop/cfg/validators-example.txt).
   Node operators would have to edit a config file to change this or choose their own
   list - hence only 1 entity owning consensus by default.
 public_node_count: 1045
 public_node_count_la: ' 8:05PM EST on Jan 27, 2019'
 public_nodes: 1065
-public_nodes_la: '2019-02-15 18:55:04.583056-05:00'
+public_nodes_la: '2019-02-16 16:26:07.938607-05:00'
 public_nodes_source: https://xrpcharts.ripple.com/#/topology
 symbol: XRP
 url: https://ripple.com/
 wealth_distribution: 79
-wealth_distribution_la: '2019-02-15 18:55:02.469778-05:00'
+wealth_distribution_la: '2019-02-16 16:26:05.779003-05:00'
 wealth_distribution_source: https://ledger.exposed/rich-stats

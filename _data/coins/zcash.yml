@@ -1,19 +1,20 @@
 client_codebases: 1
-client_codebases_la: '2019-02-15 18:56:36.987926-05:00'
+client_codebases_la: '2019-02-16 16:27:36.190365-05:00'
 client_codebases_source: https://explorer.zcha.in/network
 consensus: PoW
 consensus_distribution: 3
-consensus_distribution_la: '2019-02-15 18:56:42.687805-05:00'
-consensus_distribution_source: https://explorer.zcha.in/statistics/miners
+consensus_distribution_la: '2019-02-16 16:27:40.932253-05:00'
+consensus_distribution_source: https://miningpoolstats.stream/zcash
 consensus_distribution_unknown: 1
 incentivized: Y
 name: Zcash
-notes: Wealth distribution can not be reliably calculated due to privacy features.
-public_nodes: 400
-public_nodes_la: '2019-02-15 18:56:36.987877-05:00'
+public_nodes: 394
+public_nodes_la: '2019-02-16 16:27:36.190316-05:00'
 public_nodes_source: https://explorer.zcha.in/network
 symbol: ZEC
 url: https://z.cash/
 wealth_distribution: ''
-wealth_distribution_la: '2019-02-15 18:56:30.811384-05:00'
+wealth_distribution_la: '2019-02-16 16:27:31.920533-05:00'
+wealth_distribution_notes: Wealth distribution can not be reliably calculated due
+  to privacy features.
 wealth_distribution_source: null

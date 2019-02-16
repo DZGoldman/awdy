@@ -1,21 +1,21 @@
 client_codebases: 1
-client_codebases_la: '2019-02-15 18:53:45.782389-05:00'
+client_codebases_la: '2019-02-16 16:24:52.780921-05:00'
 client_codebases_source: https://github.com/iotaledger/iri
 consensus: Tangle (DAG)
 consensus_distribution: 1
-consensus_distribution_la: '2019-02-15 18:53:45.782423-05:00'
-consensus_distribution_source: https://docs.iota.org/introduction/tangle/consensus
+consensus_distribution_la: '2019-02-16 16:24:52.780949-05:00'
+consensus_distribution_source: https://docs.iota.org/docs/the-tangle/0.1/concepts/the-coordinator
 incentivized: Y
 name: IOTA
 notes: There is no automatic peer discover in IOTA, so total full nodes is unknown
   since most are not public. Full nodes are recommended to not consider a transaction
   to be confirmed on the IOTA Network until referenced by the "coordinator", a centralized
   node controlled by the IOTA Foundation.
-public_nodes: 250
-public_nodes_la: '2019-02-15 18:53:45.782327-05:00'
+public_nodes: 244
+public_nodes_la: '2019-02-16 16:24:52.780778-05:00'
 public_nodes_source: https://iota-nodes.net/statistics
 symbol: MIOTA
 url: https://iota.org/
 wealth_distribution: 62
-wealth_distribution_la: '2019-02-15 18:53:23.803380-05:00'
+wealth_distribution_la: '2019-02-16 16:24:43.414851-05:00'
 wealth_distribution_source: https://thetangle.org/statistics/richest-addresses
