@@ -36,7 +36,7 @@ def home():
 def index():
     '''Return index.html for all non-api routes'''
     # return render_template( 'index.html') 
-    return render_template( 'index.html', all_coin_data = json.dumps(all_coin_data)) 
+    return render_template( 'index.html', coming_soon = os.environ.get('COMING_SOON') ) 
 
  
 def cron():

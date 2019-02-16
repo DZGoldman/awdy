@@ -156,7 +156,7 @@ handleNull = (dataPoint)=>{
   render() {
     const { coinData, columnHeaders, readable} = this.state;
 
-    if(process.env.COMING_SOON ){
+    if(window.comingSoon ){
       return <div id='cswrap'>
               <Favicon url="https://d30y9cdsu7xlg0.cloudfront.net/png/58197-200.png" />
       returning soon...  <a href="https://twitter.com/DZack23/status/1084178115788718082">(under new management)</a>
