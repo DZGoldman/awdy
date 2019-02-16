@@ -1,19 +1,20 @@
 client_codebases: 2
-client_codebases_la: 10:16AM EST on Feb 12, 2019
+client_codebases_la: '2019-02-15 18:51:08.582705-05:00'
 client_codebases_source: https://cash.coin.dance/nodes#allNodes
 consensus: PoW
 consensus_distribution: 3
-consensus_distribution_la: 10:16AM EST on Feb 12, 2019
+consensus_distribution_la: '2019-02-15 18:51:15.043146-05:00'
 consensus_distribution_source: https://cash.coin.dance/blocks/today
+consensus_distribution_unknown: 18.06
 incentivized: Y
 name: Bitcoin Cash
 public_node_count: 1685
 public_node_count_la: ' 8:06PM EST on Jan 27, 2019'
 public_nodes: 1589
-public_nodes_la: 10:16AM EST on Feb 12, 2019
+public_nodes_la: '2019-02-15 18:51:08.489041-05:00'
 public_nodes_source: https://cash.coin.dance/nodes
 symbol: BCH
 url: https://www.bitcoincash.org/
 wealth_distribution: 25
-wealth_distribution_la: 10:16AM EST on Feb 12, 2019
+wealth_distribution_la: '2019-02-15 18:51:02.850929-05:00'
 wealth_distribution_source: https://bitinfocharts.com/top-100-richest-bitcoin%20cash-addresses.html

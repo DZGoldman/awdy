@@ -1,14 +1,19 @@
+client_codebases: 1
+client_codebases_la: '2019-02-15 18:54:01.621444-05:00'
+client_codebases_source: https://getmonero.org/downloads/
+consensus: PoW
+consensus_distribution: 3
+consensus_distribution_la: '2019-02-15 18:54:07.166753-05:00'
+consensus_distribution_source: https://www.minexmr.com/pools.html
+consensus_distribution_unknown: 65
+incentivized: Y
 name: Monero
+notes: Wealth distribution can not be reliably calculated due to privacy features.
+public_nodes: 1518
+public_nodes_la: '2019-02-15 18:54:01.621401-05:00'
+public_nodes_source: https://monerohash.com/nodes-distribution.html
 symbol: XMR
 url: https://getmonero.org/
-consensus: PoW
-incentivized: Y
-consensus_distribution: 3
-consensus_distribution_source: https://www.minexmr.com/pools.html
-wealth_distribution:
-wealth_distribution_source:
-client_codebases: 1
-client_codebases_source: https://getmonero.org/downloads/
-public_nodes: 1691
-public_nodes_source: https://monerohash.com/nodes-distribution.html
-notes: Wealth distribution can not be reliably calculated due to privacy features.
+wealth_distribution: ''
+wealth_distribution_la: '2019-02-15 18:53:56.691766-05:00'
+wealth_distribution_source: null

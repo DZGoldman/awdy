@@ -1,13 +1,16 @@
-name: Ethereum Classic
-symbol: ETC
-url: https://ethereumclassic.github.io/
-consensus: PoW
-incentivized: Y
-consensus_distribution: 2
-consensus_distribution_source: http://gastracker.io/stats/miners
-wealth_distribution:
-wealth_distribution_source:
 client_codebases: 2
 client_codebases_source: http://gastracker.io/stats/nodes
-public_nodes:
-public_nodes_source:
+consensus: PoW
+consensus_distribution: 2
+consensus_distribution_la: '2019-02-15 13:45:16.026440-05:00'
+consensus_distribution_source: http://gastracker.io/stats/miners
+incentivized: Y
+name: Ethereum Classic
+public_nodes: ''
+public_nodes_la: '2019-02-15 13:45:11.364291-05:00'
+public_nodes_source: null
+symbol: ETC
+url: https://ethereumclassic.github.io/
+wealth_distribution: ''
+wealth_distribution_la: '2019-02-15 13:45:11.364162-05:00'
+wealth_distribution_source: null

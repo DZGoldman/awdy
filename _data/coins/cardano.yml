@@ -1,19 +1,19 @@
 client_codebases: 1
-client_codebases_la: ' 8:41AM EST on Jan 29, 2019'
+client_codebases_la: '2019-02-15 18:51:38.364834-05:00'
 client_codebases_source: https://cardanodocs.com/timeline/bootstrap/
 consensus: PoS
 consensus_distribution: 1
-consensus_distribution_la: ' 8:41AM EST on Jan 29, 2019'
+consensus_distribution_la: '2019-02-15 18:51:38.364846-05:00'
 consensus_distribution_source: https://cardanodocs.com/timeline/bootstrap/
 incentivized: N
 name: Cardano
 notes: During the "Boostrap" era, Cardano runs all the validating nodes themselves.
   Hence 1 for everything.
 public_nodes: 1
-public_nodes_la: ' 8:41AM EST on Jan 29, 2019'
+public_nodes_la: '2019-02-15 18:51:38.364820-05:00'
 public_nodes_source: https://cardanodocs.com/timeline/bootstrap/
 symbol: ADA
 url: https://www.cardano.org/en/home/
 wealth_distribution: 52
-wealth_distribution_la: ' 8:41AM EST on Jan 29, 2019'
+wealth_distribution_la: '2019-02-15 18:51:38.364786-05:00'
 wealth_distribution_source: https://adatracker.com/richest

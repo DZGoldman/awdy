@@ -1,21 +1,22 @@
 client_codebases: 1
-client_codebases_la: ' 8:41AM EST on Jan 29, 2019'
+client_codebases_la: '2019-02-15 18:51:51.026343-05:00'
 client_codebases_source: https://www.dashninja.pl/masternodes.html
 consensus: PoW
-consensus_distribution: 3
-consensus_distribution_la: ' 8:41AM EST on Jan 29, 2019'
+consensus_distribution: 9
+consensus_distribution_la: '2019-02-15 18:51:58.129825-05:00'
 consensus_distribution_source: https://chainz.cryptoid.info/dash/#!extraction
+consensus_distribution_unknown: 46
 incentivized: Y
 name: Dash
 notes: Dash uses Masternodes (collateralised full nodes with no or empty wallet, funds
   are kept in local offline wallets) to perform higher level functions (PrivateSend,
   InstantSend and Governance). Masternodes share block rewards with miners via deterministic
   queue. The `# of public nodes` represents the number of active Masternodes.
-public_nodes: 4639
-public_nodes_la: ' 8:41AM EST on Jan 29, 2019'
+public_nodes: 4838
+public_nodes_la: '2019-02-15 18:51:51.026301-05:00'
 public_nodes_source: https://www.dashninja.pl/masternodes.html
 symbol: DASH
 url: https://dash.org
 wealth_distribution: 15
-wealth_distribution_la: ' 8:41AM EST on Jan 29, 2019'
+wealth_distribution_la: '2019-02-15 18:51:43.345203-05:00'
 wealth_distribution_source: https://bitinfocharts.com/top-100-richest-dash-addresses.html

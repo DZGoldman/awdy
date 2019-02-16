@@ -1,17 +1,18 @@
 client_codebases: 1
-client_codebases_la: ' 8:42AM EST on Jan 29, 2019'
+client_codebases_la: '2019-02-15 18:56:25.200935-05:00'
 client_codebases_source: https://github.com/vertcoin-project/vertcoin-core
 consensus: PoW
-consensus_distribution: 2
-consensus_distribution_la: ' 8:42AM EST on Jan 29, 2019'
+consensus_distribution: 3
+consensus_distribution_la: '2019-02-15 18:56:30.803306-05:00'
 consensus_distribution_source: https://vtconline.org/sf.html
+consensus_distribution_unknown: 0
 incentivized: Y
 name: Vertcoin
-public_nodes: 131
-public_nodes_la: ' 8:42AM EST on Jan 29, 2019'
+public_nodes: 69
+public_nodes_la: '2019-02-15 18:56:25.198029-05:00'
 public_nodes_source: https://scanner.vertcoin.org/nodes
 symbol: VTC
 url: https://vertcoin.org
 wealth_distribution: 51
-wealth_distribution_la: ' 8:42AM EST on Jan 29, 2019'
+wealth_distribution_la: '2019-02-15 18:56:22.944987-05:00'
 wealth_distribution_source: https://bitinfocharts.com/vertcoin/
