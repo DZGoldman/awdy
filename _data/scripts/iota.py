@@ -1,5 +1,5 @@
 from coinscrapper import CoinScrapper
-
+import requests
 class Iota(CoinScrapper):
 
     def __init__ (self, driver):
@@ -7,11 +7,8 @@ class Iota(CoinScrapper):
         self.driver = driver
 
     def get_public_nodes(self):
-        self.get_page('https://iota-nodes.net/statistics')
-        table = self.find_element('.table')
-        readtable = self.read_table(table)
-        value = readtable[readtable['Measure'] == 'Total Count']['Value']
-        return int(value)
+        r = requests.get("https://api.iota-nodes.net/")
+        return len(r.json())
         
     def get_wealth_distribution(self):
         total_supply = 2779.530283277761
