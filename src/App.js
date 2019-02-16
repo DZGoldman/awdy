@@ -126,9 +126,10 @@ renderWithInfo = (coin,colName, add="")=>{
   const cellId =    `${coin}-${colName}`
   const lastUpdatedMessage = `Last Updated: ${coin[colName+'_la']}`
   //         <p data-tip='this is a tip' data-for='test'>tooltip test</p>
-  return <td> <a  data-tip={lastUpdatedMessage} data-for={cellId}target="_blank" href={coin[colName+'_source']}> { this.handleNull(coin[colName]) +  add}</a>
+  const Unknown = (colName == 'consensus_distribution' && coin.consensus_distribution_unknown) || 0
+  return <td> <a  data-tip={lastUpdatedMessage} data-for={cellId}target="_blank" href={coin[colName+'_source']}> { Unknown < 40 ? this.handleNull(coin[colName]) +  add : '???'}</a>
             <ReactTooltip type='info' place="right" id={cellId}></ReactTooltip>
-            {(colName == 'consensus_distribution' && coin.consensus_distribution_unknown) ? <span className='unknown-notice'> ({coin.consensus_distribution_unknown}% unknown)</span> : null}
+            {Unknown ? <span className='unknown-notice'> ({Unknown}% unknown)</span> : null}
             </td>
 }
 renderIncentivized = (coin)=>{
@@ -142,7 +143,7 @@ renderIncentivized = (coin)=>{
   }
 }
 handleNull = (dataPoint)=>{
-  return dataPoint == "" ? "?" : dataPoint
+  return dataPoint == "" ? "???" : dataPoint
 }
   render() {
     const { coinData, columnHeaders, readable} = this.state;
@@ -242,7 +243,7 @@ handleNull = (dataPoint)=>{
           <div className="footer" id="footer">
             <div className="footer-bottom">
               <div className="footer-row">
-                <div>Created by Daniel Goldman </div>
+                <div>built & maintained by Daniel Goldman </div>
                 <div>
                   {" "}
                   <a target="_blank" href="https://twitter.com/DZack23">
@@ -274,18 +275,23 @@ handleNull = (dataPoint)=>{
               </div>
               <div id="inspired-by" className="footer-row">
                 {" "}
-                sister site: &nbsp;
+
                 <a target="_blank" href="https://arewestableyet.com/">
-                arewestableyet.com
+                sister site
                 </a>
               </div>
-
+              <div className="footer-row">
+                <a target="_blank" href="https://en.wikipedia.org/wiki/Goodhart%27s_law"> disclaimer </a>
+                </div>
+              <div className="footer-row">
+              originally created by Jackson Palmer; he's no longer affiliated. please don't bother him.
+                </div>
               <div id="tips" className="footer-row">
                 <div>
                   {" "}
                   <p>
                     {" "}
-                    Help promote wealth decentralization by giving me yours:
+                    help promote wealth decentralization by giving me yours:
                   </p>{" "}
                 </div>
     

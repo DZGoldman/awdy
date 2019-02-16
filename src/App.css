@@ -80,6 +80,7 @@ thead{
 .footer-row{
   display: flex;
   padding-left: 10px;
+  margin-bottom: 15px;
 }
 .footer-row > div{
   margin-right: 5px;
