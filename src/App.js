@@ -90,9 +90,7 @@ class App extends Component {
       const coinData = [...this.state.coinData]
       coinData.forEach((coin)=>{
         coin.rank = rankHash[coin.symbol]
-      })
-      console.log('xy',coinData);
-      
+      })      
       this.setState({coinData},()=>{
         this.sortBy('rank')
       })
