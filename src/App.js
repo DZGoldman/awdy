@@ -102,8 +102,16 @@ class App extends Component {
 
         axios.get(this.dataUrl)
   .then(d => {
+    const data = d.data.map((coin)=>{
+      if(coin.consensus_distribution_unknown && coin.consensus_distribution_unknown > 40){
+        return Object.assign({}, coin, {consensus_distribution: 0})
+      } else {
+        return coin
+      }
+    })
+    
     this.setState({
-      coinData: d.data
+      coinData: data
         },()=>{
         this.sortBy('symbol');
         this.getRankData()
