@@ -1,10 +1,10 @@
 from coinscrapper import CoinScrapper
 import requests
 
-class Ripple(CoinScrapper):
+class XRP(CoinScrapper):
 
     def __init__ (self, driver):
-        self.name = 'ripple'
+        self.name = 'xrp'
         self.driver = driver
 
     def get_public_nodes(self):
@@ -52,4 +52,4 @@ class Ripple(CoinScrapper):
 
     def get_consensus_distribution(self):
         # N/A
-        return 1
+        return 0
