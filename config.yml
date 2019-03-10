@@ -19,7 +19,7 @@ ardor: false
 dogecoin: true
 ethereumclassic: false
 monero: true
-nano: false
+nano: true
 qtum: false
 stellar: true
 zcash: true

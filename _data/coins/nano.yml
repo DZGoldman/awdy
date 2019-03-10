@@ -1,15 +1,19 @@
 client_codebases: 1
+client_codebases_la: '2019-03-09 23:20:12.995333-05:00'
 client_codebases_source: https://nanonode.ninja/statistics/versions
 consensus: DPoS
-consensus_distribution: 4
-consensus_distribution_source: https://nanonode.ninja/active
+consensus_distribution: 2
+consensus_distribution_la: '2019-03-09 23:20:13.755131-05:00'
+consensus_distribution_source: https://repnode.org/representatives/nakamoto
 incentivized: N
 name: Nano
 notes: The "Official Representatives" are run by the developers, hence can be collapsed
   to represent a single entity
-public_nodes: 425
+public_nodes: 474
+public_nodes_la: '2019-03-09 23:20:12.995286-05:00'
 public_nodes_source: https://nano.meltingice.net/status
 symbol: NANO
 url: https://nano.org
-wealth_distribution: 62%
-wealth_distribution_source: https://nano.meltingice.net/explorer/top_accounts
+wealth_distribution: 60
+wealth_distribution_la: '2019-03-09 23:20:12.223177-05:00'
+wealth_distribution_source: https://api.nanocrawler.cc/accounts/1
